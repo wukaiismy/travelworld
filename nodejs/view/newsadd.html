@@ -1,0 +1,140 @@
+<%include head.html%>
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="theme-change" class="hidden-phone">
+                        <i class="icon-cogs"></i>
+                        <span class="settings">
+                            <span class="text">主题颜色:</span>
+                            <span class="colors">
+                                <span class="color-default" data-style="default"></span>
+                                <span class="color-green" data-style="green"></span>
+                                <span class="color-gray" data-style="gray"></span>
+                                <span class="color-purple" data-style="purple"></span>
+                                <span class="color-red" data-style="red"></span>
+                            </span>
+                        </span>
+                    </div>
+
+                    <h3 class="page-title">
+                        音乐菜单
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">首页</a>
+                            <span class="divider">/</span>
+                        </li>
+                        <li>
+                            <a href="#">音乐菜单</a>
+                            <span class="divider">/</span>
+                        </li>
+                        <li class="active">
+                            添加音乐
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="widget red">
+                        <div class="widget-title">
+                            <h4>
+                                <i class=" icon-key"></i>添加音乐</h4>
+                        </div>
+                        <div class="widget-body form">
+                            <form class="form-horizontal" id="newsform">
+                                <input type="hidden" name="did" id="did" value="<%=newsdata.did%>">
+                                <div class="control-group ">
+                                    <label for="firstname" class="control-label">所属类型</label>
+                                    <div class="controls">
+                                        <select class="span6" name="cid" id="cid" tabindex="1">
+                                            <option value="">请选择类型</option>
+                                            <% for(var list of lists){ %>
+                                                <option value="<%=list.cid%>" <%if(list.cid==newsdata.cid){%> selected
+                                                    <%}%> >
+                                                        <%=list.title%>
+                                                </option>
+                                                <%}%>
+                                        </select>
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group ">
+                                    <label for="firstname" class="control-label">歌曲名字</label>
+                                    <div class="controls">
+                                        <input class="span6 " id="music" value="<%=newsdata.music%>" name="music" type="text" required />
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label for="firstname" class="control-label">歌手</label>
+                                    <div class="controls">
+                                        <input class="span6 " id="sgname" value="<%=newsdata.sgname%>" name="sgname" type="text" required />
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <div class="controls">
+                                    <input type="file">
+                                    <button class="submit-button" type="button">开始上传音频</button>
+                                    <input type="text" name="mus" id="mus"  value="<%=newsdata.mus%>">
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <div class="controls">
+                                        <input type="file">
+                                        <button class="submit-button" type="button">开始上传歌词</button>
+                                        <input type="text" name="rlc" id="rlc" value="<%=newsdata.rlc%>">
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <div class="controls">
+                                        <input type="file">
+                                        <button class="submit-button" type="button">开始上传封面</button>
+                                        <input type="text" name="pic" id="pic" value="<%=newsdata.pic%>">
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-success addnews" type="button">保存</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $('.submit-button').on('click',function(){
+        var This = $(this);
+        var myPhoto = This.prev('input')[0].files[0];
+        var oMyForm = new FormData();
+        oMyForm.append("name", 'yinpin');
+        oMyForm.append("userfile", myPhoto);
+        $.ajax({
+            type : 'POST',
+            url : './imgUpload',
+            cache : false,  //不需要缓存
+            processData : false,    //不需要进行数据转换
+            contentType : false, //默认数据传输方式是application,改为false，编程multipart
+            data : oMyForm,
+            dataType : 'json'
+        }).done(function(data){
+            console.log(data);
+            This.next('input').val(data.uploadPath);
+
+            alert(data.errMsg);
+        }).fail(function(err){
+            console.error(err);
+        });
+    });
+</script>
+    <%include foot.html%>

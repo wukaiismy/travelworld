@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>快乐码男-音乐管理后台</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="icon" href="./img/llg.jpg" type="image/x-icon" />
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="css/style-default.css" rel="stylesheet" id="style_color" />
+
+    <link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+
+</head>
+
+<body class="fixed-top">
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="sidebar-toggle-box hidden-phone">
+                    <div class="icon-reorder tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <a class="brand" href="index.html">
+                    <img src="img/logo.png" alt="Metro Lab" />
+                </a>
+                <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="arrow"></span>
+                </a>
+
+                <div class="top-nav ">
+                    <ul class="nav pull-right top-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="img/avatar1_small.jpg" alt="">
+                                <span class="username">
+                                    <%=username%>
+                                </span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-user"></i> 个人资料</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-cog"></i> 个人设置</a>
+                                </li>
+                                <li>
+                                    <a href="login">
+                                        <i class="icon-key"></i> 注销</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container" class="row-fluid">
+        <div class="sidebar-scroll">
+            <div id="sidebar" class="nav-collapse collapse">
+
+                <div class="navbar-inverse">
+                    <form class="navbar-search visible-phone">
+                        <input type="text" class="search-query" placeholder="Search" />
+                    </form>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="sub-menu active">
+                        <a href="javascript:;" class="">
+                            <i class="icon-tasks"></i>
+                            <span>音乐管理菜单</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li class="active">
+                                <a class="" href="titlelist">音乐类型列表</a>
+                            </li>
+                            <li class="active">
+                                <a class="" href="center">添加音乐类型</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu active">
+                        <a href="javascript:;" class="">
+                            <i class="icon-tasks"></i>
+                            <span>音乐菜单</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li class="active">
+                                <a class="" href="newslist">歌曲列表</a>
+                            </li>
+                            <li class="active">
+                                <a class="" href="newsadd">添加音乐</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
