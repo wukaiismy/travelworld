@@ -1,0 +1,23 @@
+{
+  "name": "travelworld",
+  "version": "1.0.0",
+  "description": "旅游",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wukaiismy/travelworld.git"
+  },
+  "keywords": [
+    "柠檬茶",
+    "旅游"
+  ],
+  "author": "柠檬茶耶",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wukaiismy/travelworld/issues"
+  },
+  "homepage": "https://github.com/wukaiismy/travelworld#readme"
+}
