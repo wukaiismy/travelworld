@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/wukaiismy/travelworld/issues"
   },
-  "homepage": "https://github.com/wukaiismy/travelworld#readme"
+  "homepage": "https://github.com/wukaiismy/travelworld#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dateformat": "^3.0.3",
+    "formidable": "^1.2.1",
+    "fs": "0.0.1-security",
+    "mysql": "^2.15.0",
+    "path": "^0.12.7"
+  }
 }
