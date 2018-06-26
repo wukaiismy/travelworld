@@ -34,7 +34,7 @@ app.use(
 );
 
 //下面分别是进入到前台和后台的路由
-// app.use("/index", require("./module/company/")());
+app.use("/index", require("./module/company/")());
 app.use("/admin", require("./module/admin/")());
 
 //端口监听

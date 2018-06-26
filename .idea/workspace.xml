@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a459ae8-a867-4050-a718-d9fa57301a2f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/nodejs/module/admin/index.js" afterPath="$PROJECT_DIR$/nodejs/module/admin/index.js" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/center.html" afterPath="$PROJECT_DIR$/nodejs/view/center.html" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/js/admin.js" afterPath="$PROJECT_DIR$/nodejs/view/js/admin.js" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/newsadd.html" afterPath="$PROJECT_DIR$/nodejs/view/newsadd.html" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/newslist.html" afterPath="$PROJECT_DIR$/nodejs/view/newslist.html" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/replace.html" afterPath="$PROJECT_DIR$/nodejs/view/replace.html" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/titlelist.html" afterPath="$PROJECT_DIR$/nodejs/view/titlelist.html" />
-      <change beforePath="$PROJECT_DIR$/nodejs/view/xiaoheiwu.html" afterPath="$PROJECT_DIR$/nodejs/view/xiaoheiwu.html" />
-    </list>
+    <list default="true" id="5a459ae8-a867-4050-a718-d9fa57301a2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -57,8 +47,8 @@
       <file leaf-file-name="newsadd.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodejs/view/newsadd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            <state relative-caret-position="187">
+              <caret line="43" column="62" lean-forward="true" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -129,7 +119,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/nodejs/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="142" />
     <option name="y" value="92" />
     <option name="width" value="1090" />
@@ -211,15 +201,15 @@
       <updated>1529936283804</updated>
       <workItem from="1529936285031" duration="743000" />
       <workItem from="1529979976439" duration="65000" />
-      <workItem from="1529982918770" duration="11065000" />
+      <workItem from="1529982918770" duration="11393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11873000" />
+    <option name="totallyTimeSpent" value="12201000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="142" y="92" width="1090" height="952" extended-state="0" />
+    <frame x="142" y="92" width="1090" height="952" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -326,8 +316,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nodejs/view/newsadd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        <state relative-caret-position="187">
+          <caret line="43" column="62" lean-forward="true" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
