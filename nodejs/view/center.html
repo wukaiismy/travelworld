@@ -53,10 +53,20 @@
                                     <br>
                                     <label class="control-label" for="status">权限</label>
                                     <div class="controls">
-                                        <input type="text" class="span6 " name="status" id="status" />
+                                        <select class="span6" name="status" id="status" tabindex="1">
+                                            <option value="">请选择权限</option>
+
+                                            <option value="1" >
+                                                       正常
+                                            </option>
+                                            <option value="0" >
+                                                封号
+                                            </option>
+                                            </select>
+                                        <!--<input type="text" class="span6 " name="status" id="status" />-->
                                         <span class="help-inline "></span>
-                                        <br>
-                                        <span class="help-inline">1表示正常权限，0表示封号</span>
+                                        <!--<br>-->
+                                        <!--<span class="help-inline">1表示正常权限，0表示封号</span>-->
                                     </div>
                                 </div>
                                 <div class="form-actions">

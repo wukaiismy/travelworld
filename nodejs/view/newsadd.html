@@ -1,11 +1,11 @@
 <%include head.html%>
-    <div id="main-content">
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div id="theme-change" class="hidden-phone">
-                        <i class="icon-cogs"></i>
-                        <span class="settings">
+<div id="main-content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div id="theme-change" class="hidden-phone">
+                    <i class="icon-cogs"></i>
+                    <span class="settings">
                             <span class="text">主题颜色:</span>
                             <span class="colors">
                                 <span class="color-default" data-style="default"></span>
@@ -15,126 +15,184 @@
                                 <span class="color-red" data-style="red"></span>
                             </span>
                         </span>
-                    </div>
-
-                    <h3 class="page-title">
-                        音乐菜单
-                    </h3>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">首页</a>
-                            <span class="divider">/</span>
-                        </li>
-                        <li>
-                            <a href="#">音乐菜单</a>
-                            <span class="divider">/</span>
-                        </li>
-                        <li class="active">
-                            添加音乐
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="widget red">
-                        <div class="widget-title">
-                            <h4>
-                                <i class=" icon-key"></i>添加音乐</h4>
-                        </div>
-                        <div class="widget-body form">
-                            <form class="form-horizontal" id="newsform">
-                                <input type="hidden" name="did" id="did" value="<%=newsdata.did%>">
-                                <div class="control-group ">
-                                    <label for="firstname" class="control-label">所属类型</label>
-                                    <div class="controls">
-                                        <select class="span6" name="cid" id="cid" tabindex="1">
-                                            <option value="">请选择类型</option>
-                                            <% for(var list of lists){ %>
-                                                <option value="<%=list.cid%>" <%if(list.cid==newsdata.cid){%> selected
-                                                    <%}%> >
-                                                        <%=list.title%>
-                                                </option>
-                                                <%}%>
-                                        </select>
-                                        <span class="help-inline"></span>
-                                    </div>
-                                </div>
-
-                                <div class="control-group ">
-                                    <label for="firstname" class="control-label">歌曲名字</label>
-                                    <div class="controls">
-                                        <input class="span6 " id="music" value="<%=newsdata.music%>" name="music" type="text" required />
-                                        <span class="help-inline"></span>
-                                    </div>
-                                </div>
-                                <div class="control-group ">
-                                    <label for="firstname" class="control-label">歌手</label>
-                                    <div class="controls">
-                                        <input class="span6 " id="sgname" value="<%=newsdata.sgname%>" name="sgname" type="text" required />
-                                        <span class="help-inline"></span>
-                                    </div>
-                                </div>
-                                <div class="control-group ">
-                                    <div class="controls">
-                                    <input type="file">
-                                    <button class="submit-button" type="button">开始上传音频</button>
-                                    <input type="text" name="mus" id="mus"  value="<%=newsdata.mus%>">
-                                    </div>
-                                </div>
-                                <div class="control-group ">
-                                    <div class="controls">
-                                        <input type="file">
-                                        <button class="submit-button" type="button">开始上传歌词</button>
-                                        <input type="text" name="rlc" id="rlc" value="<%=newsdata.rlc%>">
-                                    </div>
-                                </div>
-                                <div class="control-group ">
-                                    <div class="controls">
-                                        <input type="file">
-                                        <button class="submit-button" type="button">开始上传封面</button>
-                                        <input type="text" name="pic" id="pic" value="<%=newsdata.pic%>">
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <button class="btn btn-success addnews" type="button">保存</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
+                <h3 class="page-title">
+                    审核菜单
+                </h3>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">首页</a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li>
+                        <a href="#">审核菜单</a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li class="active">
+                       审核
+                    </li>
+                </ul>
             </div>
         </div>
 
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget red">
+                    <div class="widget-title">
+                        <h4>
+                            <i class=" icon-key"></i>审核处理</h4>
+                    </div>
+                    <div class="widget-body form">
+                        <form class="form-horizontal" id="newsform">
+                            <input type="hidden" name="sid" id="sid" value="<%=newsdata.sid%>">
+                            <!--<div class="control-group ">-->
+                                <!--<label for="firstname" class="control-label">所属栏目</label>-->
+                                <!--<div class="controls">-->
+                                    <!--<select class="span6" name="cid" id="cid" tabindex="1">-->
+                                        <!--<option value="">请选择栏目</option>-->
+                                        <!--<% for(var list of lists){ %>-->
+                                        <!--<option value="<%=list.cid%>" <%if(list.cid==newsdata.cid){%> selected-->
+                                        <!--<%}%> >-->
+                                        <!--<%=list.title%>-->
+                                        <!--</option>-->
+                                        <!--<%}%>-->
+                                    <!--</select>-->
+                                    <!--<span class="help-inline"></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <div class="control-group ">
+                                <label for="firstname" class="control-label">攻略标题</label>
+                                <div class="controls">
+                                    <input class="span6 " id="newstitle" value="<%=newsdata.title%>" name="title" type="text" required />
+                                    <span class="help-inline"></span>
+                                </div>
+                            </div>
+
+                            <!--<div class="control-group ">-->
+                                <!--<label for="firstname" class="control-label">攻略内容</label>-->
+                                <!--<div class="controls">-->
+                                    <!--<input class="span6 " id="pic" name="pic" type="hidden" value="<%=newsdata.pic%>" />-->
+                                    <!--<span class="help-inline"></span>-->
+                                    <!--<div id="picmenu"></div>-->
+                                    <!--<div id="newspic"></div>-->
+                                    <!--<img src="<%=newsdata.pic%>" id="mainpic" alt="">-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <div class="control-group ">
+                                <label for="firstname" class="control-label">攻略内容</label>
+
+                                <div class="controls">
+                                    <div id="div1" class="toolbar"></div>
+                                    <div id="mycontent" value="">
+                                        <%-newsdata.content%>
+                                    </div>
+                                    <textarea class="span6 " id="description" rows="10" name="description" required="" style="display: none"></textarea>
+                                    <span class="help-inline"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group ">
+                                <label for="firstname" class="control-label">审核结果</label>
+                                <div class="controls">
+                                    <select class="span6" name="status" id="status" tabindex="1">
+                                        <option value="" >请选择审核结果</option>
+
+                                        <option value="1" >
+                                            审核通过
+                                        </option>
+                                        <option value="0" >
+                                            审核不通过
+                                        </option>
+                                    </select>
+                                    <!--<input class="span6 " id="status"  name="status" type="text" required />-->
+                                    <!--<span class="help-inline"></span>-->
+                                   <!--<br>-->
+                                    <!--<span class="help-inline">1表示审核通过，0表示未通过</span>-->
+                                <!--</div>-->
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn-success addnews" type="button">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    </div>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>
-    $('.submit-button').on('click',function(){
-        var This = $(this);
-        var myPhoto = This.prev('input')[0].files[0];
-        var oMyForm = new FormData();
-        oMyForm.append("name", 'yinpin');
-        oMyForm.append("userfile", myPhoto);
-        $.ajax({
-            type : 'POST',
-            url : './imgUpload',
-            cache : false,  //不需要缓存
-            processData : false,    //不需要进行数据转换
-            contentType : false, //默认数据传输方式是application,改为false，编程multipart
-            data : oMyForm,
-            dataType : 'json'
-        }).done(function(data){
-            console.log(data);
-            This.next('input').val(data.uploadPath);
+</div>
 
-            alert(data.errMsg);
-        }).fail(function(err){
-            console.error(err);
-        });
-    });
+</div>
+<style type="text/css">
+    .toolbar {
+        border: 1px solid #dfe4d6;
+        border-bottom: 0;
+    }
+
+    #mycontent {
+        border: 1px solid #ccc;
+
+        height: 200px;
+        max-height: 800px;
+        background-color: #fff;
+    }
+
+    #newspic {
+        height: 0;
+        position: relative;
+        z-index: 10002 !important;
+    }
+
+    .w-e-panel-container {
+        background-color: #fff;
+        position: relative;
+    }
+
+    #mainpic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50% !important;
+    }
+</style>
+
+<script type="text/javascript" src="./wangeditor/release/wangEditor.min.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#div1', '#mycontent');
+
+    editor.customConfig.uploadImgServer = './uploadimg'; //处理图片上传的服务器地址
+    editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+    editor.customConfig.uploadFileName = 'uploadfile';
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $('#description').val(html);
+    }
+    editor.create();
+
+
+    //上传单张图片
+    var editor2 = new E('#picmenu', '#newspic');
+    editor2.customConfig.uploadImgServer = './uploadimg'; //处理图片上传的服务器地址
+    editor2.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+    editor2.customConfig.uploadFileName = 'uploadfile';
+    editor2.customConfig.menus = [
+        'image'
+    ];
+
+    editor2.customConfig.uploadImgHooks = {
+        success: function (xhr, editor, result) {
+            console.log(result);
+            $('#mainpic').attr('src', result.data[0]);
+            $('#pic').val(result.data[0]);
+        }
+    }
+
+    editor2.create();
 </script>
-    <%include foot.html%>
+<%include foot.html%>

@@ -176,6 +176,125 @@ module.exports = function() {
     });
   });
 
+  //渲染newslist审核页面
+  router.get("/newslist", function(req, res) {
+    // var mydb = require("../golbal/mydb.js").mys();
+    //查出未审核的攻略
+    var $sql =
+      "select s.*,user.usernames,a.username from strategy as s left join user on s.uid=user.uid left join admin as a on s.aid=a.aid where s.status=0 and s.kw=1";
+    mydb.query($sql, function(err, result) {
+      console.log(err);
+      // console.log(result);
+      var datas = {
+        username: req.session.username,
+        lists: result
+      };
+      res.render("newslist", datas);
+    });
+  });
+
+  //跳转到newsadd时,添加标题页面
+  router.get("/newsadd", function(req, res) {
+    var dids = 0;
+    dids = req.query.sid;
+    console.log("did=" + dids);
+    // var mydb = require("../golbal/mydb.js").mys();
+    var $sql = "select * from strategy where status=0 and kw=1";
+    mydb.query($sql, function(err, result) {
+      console.log(err);
+      // console.log(result);
+      if (dids) {
+        var $sql1 = "select * from strategy where sid=? limit 1";
+        mydb.query($sql1, dids, function(errs, newsdata) {
+          console.log(newsdata[0]);
+          var data11 = {
+            username: req.session.username,
+            lists: result,
+            newsdata: newsdata[0]
+          };
+          res.render("newsadd", data11);
+        });
+      } else {
+        var data12 = {
+          username: req.session.username,
+          lists: result,
+          newsdata: {}
+        };
+        res.render("newsadd", data12);
+      }
+    });
+  });
+
+  //审核页面提交的表单提交处理
+  router.post("/addnews", function(req, res) {
+    //把数据保存到数据库
+    var str = req.body;
+    console.log(str.sid);
+    if (str.status == 1) {
+      //表示修改
+      var $sql = "UPDATE strategy SET aid=?, status=1,kw=1 WHERE sid=?";
+    } else {
+      var $sql = "UPDATE strategy SET aid=?,status=0,kw=0 WHERE sid=?";
+    }
+    mydb.query($sql, [req.session.aid, str.sid], function(err, result) {
+      if (err) {
+        console.log(err);
+        res.json({
+          r: "db_error"
+        });
+      } else {
+        res.json({
+          r: "ok"
+        });
+      }
+    });
+  });
+
+  //处理图片上传
+  //实际开发应该怎么样
+  var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      var folder =
+        "./uploads/" +
+        new Date().getFullYear() +
+        "/" +
+        (new Date().getMonth() + 1).toString().padStart(2, "0");
+      var fArr = folder.split("/");
+      var fe = ".";
+      for (var i = 1; i < fArr.length; i++) {
+        fe += "/" + fArr[i];
+        if (!fs.existsSync(fe)) {
+          fs.mkdirSync(fe, 0777);
+        }
+      }
+      cb(null, folder);
+    },
+    filename: function(req, file, cb) {
+      var filename =
+        new Date().valueOf() +
+        "_" +
+        Math.random()
+          .toString()
+          .substring(2, 8) +
+        path.parse(file.originalname).ext;
+      cb(null, filename);
+    }
+  });
+  var upload = multer({
+    storage: storage
+  });
+  router.post("/uploadimg", upload.array("uploadfile", 50), function(req, res) {
+    // console.log(req.files);
+    var data = [];
+    for (var i = 0; i < req.files.length; i++) {
+      data.push(req.files[i].path);
+    }
+    res.json({
+      errno: 0,
+      data: data
+    });
+  });
+
   //设置默认首页
   router.get("/", function(req, res) {
     var datas = {

@@ -142,6 +142,8 @@ $(function () {
         if (!confirm("删除后数据不可恢复，确认删除？")) {
             return;
         };
+        alert("请在修改项中进行操作");
+        return;
         $.ajax({
             url: "newsdellist",
             type: "post",
