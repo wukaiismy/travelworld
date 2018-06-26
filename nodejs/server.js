@@ -1,5 +1,5 @@
 const express = require("express");
-const els = require("ejs");
+const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -20,7 +20,6 @@ app.set("view engine", "html");
 app.set("views", ["view", "../view"]);
 
 //设置cookie和session参数
-
 app.use(cookieParser());
 app.use(
   session({
@@ -34,10 +33,10 @@ app.use(
   })
 );
 
-//下面分辨是进入到前台和后台的路由
-app.use("/index", require("./module/company/")());
+//下面分别是进入到前台和后台的路由
+// app.use("/index", require("./module/company/")());
 app.use("/admin", require("./module/admin/")());
 
 //端口监听
-app.listen(81);
-console.log("81运行中。。。");
+app.listen(8080);
+console.log("8080运行中。。。");

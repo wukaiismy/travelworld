@@ -6,7 +6,7 @@
                     <div id="theme-change" class="hidden-phone">
                         <i class="icon-cogs"></i>
                         <span class="settings">
-                            <span class="text" 主题:</span>
+                            <span class="text"> 主题:</span>
                                 <span class="colors">
                                     <span class="color-default" data-style="default"></span>
                                     <span class="color-green" data-style="green"></span>
@@ -17,7 +17,7 @@
                             </span>
                     </div>
                     <h3 class="page-title">
-                        音乐管理菜单
+                        用户管理菜单
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -25,11 +25,11 @@
                             <span class="divider">/</span>
                         </li>
                         <li>
-                            <a href="#">音乐管理菜单</a>
+                            <a href="#">用户管理菜单</a>
                             <span class="divider">/</span>
                         </li>
                         <li class="active">
-                            添加音乐类型
+                            权限设置
                         </li>
                     </ul>
                 </div>
@@ -40,16 +40,24 @@
                     <div class="widget red">
                         <div class="widget-title">
                             <h4>
-                                <i class=" icon-key"></i>添加音乐类型</h4>
+                                <i class=" icon-key"></i>权限设置</h4>
                         </div>
                         <div class="widget-body form">
                             <form class="form-horizontal" id="replaceform">
-                                <input type="hidden" name="cid" id="cid" value="<%=lists.cid%>">
+                                <input type="hidden" name="uid" id="uid" value="<%=lists.uid%>">
                                 <div class="control-group ">
-                                    <label class="control-label" for="inp">类型 </label>
+                                    <label class="control-label" for="inp">用户 </label>
                                     <div class="controls">
-                                        <input type="text" class="span6 " value="<%=lists.title%>" name="inp" id="inp" />
+                                        <input type="text" class="span6 " value="<%=lists.username%>" name="inp" id="inp" />
                                         <span class="help-inline "></span>
+                                    </div>
+                                    <br>
+                                    <label class="control-label" for="status">权限</label>
+                                    <div class="controls">
+                                        <input type="text" class="span6 " name="status" id="status" value="<%=lists.status%>" />
+                                        <span class="help-inline "></span>
+                                        <br>
+                                        <span class="help-inline">1表示正常权限，0表示封号</span>
                                     </div>
                                 </div>
                                 <div class="form-actions">

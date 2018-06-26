@@ -2,6 +2,7 @@ $(function () {
     var adds = $(".add");
     adds.click(function () {
         var inp = $("#inp");
+        var status = $("#status");
         if (!inp.val()) {
             inp.focus();
             inp.next().html("必填");
@@ -17,15 +18,15 @@ $(function () {
             async: true,
             dataType: "json",
             data: {
-                inp: inp.val()
+                inp: inp.val(),status: status.val()
             },
             success: function (data) {
                 console.log(data);
                 if (data.r == "ok") {
                     if (data.s == "used") {
-                        alert("数据已存在，已自动更新完毕");
+                        alert("权限修改成功");
                     } else {
-                        alert("添加成功");
+                        alert("没有该账号，请确认");
                     }
                     window.location.href = "titlelist";
                 } else {
@@ -42,6 +43,7 @@ $(function () {
     var replace = $(".replace");
     replace.click(function () {
         var inp = $("#inp");
+        var status = $("#status");
         if (!inp.val()) {
             inp.focus();
             inp.next().html("必填");
@@ -58,12 +60,13 @@ $(function () {
             dataType: "json",
             data: {
                 inp: inp.val(),
-                cid: $("#cid").val()
+                uid: $("#uid").val(),
+                status: status.val(),
             },
             success: function (data) {
                 console.log(data);
                 if (data.r == "ok") {
-                    alert("修改成功");
+                    alert("权限设置成功");
                     window.location.href = "titlelist";
                 } else {
                     alert("未知错误");
@@ -81,6 +84,8 @@ $(function () {
         if (!confirm("删除后数据不可恢复，确认删除？")) {
             return;
         };
+        alert("没有权限删除用户数据");
+        return;
         $.ajax({
             url: "dellist",
             type: "post",
