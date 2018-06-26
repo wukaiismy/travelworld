@@ -17,7 +17,7 @@ app.use(
 //创建模板引擎，用于没有使用Vue框架的页面
 app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
-app.set("views", ["view", "../view"]);
+app.set("views", "view");
 
 //设置cookie和session参数
 app.use(cookieParser());

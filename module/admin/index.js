@@ -27,7 +27,7 @@ module.exports = function() {
       username: req.cookies.username,
       passwd: req.cookies.passwd
     };
-    res.render("login", datas);
+    res.render("admin/login", datas);
   });
 
   //登录页面的post 数据处理
@@ -83,7 +83,7 @@ module.exports = function() {
       username: req.cookies.username,
       passwd: req.cookies.passwd
     };
-    res.render("center", datas);
+    res.render("admin/center", datas);
   });
 
   //添加旅游类型的表单提交
@@ -127,7 +127,7 @@ module.exports = function() {
         username: req.session.username,
         lists: result
       };
-      res.render("titlelist", datas);
+      res.render("admin/titlelist", datas);
     });
   });
 
@@ -142,7 +142,7 @@ module.exports = function() {
         username: req.session.username,
         lists: result[0]
       };
-      res.render("replace", datas);
+      res.render("admin/replace", datas);
     });
   });
 
@@ -172,7 +172,7 @@ module.exports = function() {
         username: req.session.username,
         lists: result
       };
-      res.render("xiaoheiwu", datas);
+      res.render("admin/xiaoheiwu", datas);
     });
   });
 
@@ -189,7 +189,7 @@ module.exports = function() {
         username: req.session.username,
         lists: result
       };
-      res.render("newslist", datas);
+      res.render("admin/newslist", datas);
     });
   });
 
@@ -212,7 +212,7 @@ module.exports = function() {
             lists: result,
             newsdata: newsdata[0]
           };
-          res.render("newsadd", data11);
+          res.render("admin/newsadd", data11);
         });
       } else {
         var data12 = {
@@ -220,7 +220,7 @@ module.exports = function() {
           lists: result,
           newsdata: {}
         };
-        res.render("newsadd", data12);
+        res.render("admin/newsadd", data12);
       }
     });
   });
@@ -301,14 +301,14 @@ module.exports = function() {
       username: req.session.username,
       passwd: req.cookies.passwd
     };
-    res.render("login", datas);
+    res.render("admin/login", datas);
   });
   //静态页面的渲染
   router.use("/uploads", express.static("uploads"));
-  router.use(express.static("view"));
+  router.use(express.static("view/admin"));
   //错误页面
   router.use("*", function(req, res) {
-    res.render("404");
+    res.render("admin/404");
   });
 
   return router;

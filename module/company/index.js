@@ -10,9 +10,9 @@ module.exports = function() {
   var router = express.Router();
 
   router.use("/uploads", express.static("uploads"));
-  router.use(express.static("view"));
+  router.use(express.static("view/company"));
   router.use("*", function(req, res) {
-    res.render("404");
+    res.render("company/404");
   });
   return router;
 };
