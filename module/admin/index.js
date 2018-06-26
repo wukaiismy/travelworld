@@ -229,14 +229,19 @@ module.exports = function() {
   router.post("/addnews", function(req, res) {
     //把数据保存到数据库
     var str = req.body;
-    console.log(str.sid);
+    console.log(str);
     if (str.status == 1) {
       //表示修改
-      var $sql = "UPDATE strategy SET aid=?, status=1,kw=1 WHERE sid=?";
+      var $sql =
+        "UPDATE strategy SET content=?, aid=?, status=1,kw=1 WHERE sid=?";
     } else {
-      var $sql = "UPDATE strategy SET aid=?,status=0,kw=0 WHERE sid=?";
+      var $sql =
+        "UPDATE strategy SET content=?, aid=?, status=0,kw=0 WHERE sid=?";
     }
-    mydb.query($sql, [req.session.aid, str.sid], function(err, result) {
+    mydb.query($sql, [str.content, req.session.aid, str.sid], function(
+      err,
+      result
+    ) {
       if (err) {
         console.log(err);
         res.json({

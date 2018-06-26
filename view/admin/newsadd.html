@@ -83,14 +83,14 @@
                             <!--</div>-->
 
                             <div class="control-group ">
-                                <label for="firstname" class="control-label">攻略内容</label>
+                                <label for="content" class="control-label">攻略内容</label>
 
                                 <div class="controls">
                                     <div id="div1" class="toolbar"></div>
                                     <div id="mycontent" value="">
                                         <%-newsdata.content%>
                                     </div>
-                                    <textarea class="span6 " id="description" rows="10" name="description" required="" style="display: none"></textarea>
+                                    <textarea class="span6 " id="content" rows="10" name="content" required="" style="display: none"> <%=newsdata.content%></textarea>
                                     <span class="help-inline"></span>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
     editor.customConfig.uploadFileName = 'uploadfile';
     editor.customConfig.onchange = function (html) {
         // 监控变化，同步更新到 textarea
-        $('#description').val(html);
+        $('#content').val(html);
     }
     editor.create();
 
