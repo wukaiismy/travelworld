@@ -1,0 +1,61 @@
+#imgs {
+    width: 50px;
+    height: 50px;
+}
+
+a {
+    text-decoration: none
+}
+
+a:hover {
+    color: #ff9d00;
+}
+
+.el-menu--horizontal>.el-menu-item {
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 20px;
+    border-bottom: 2px solid transparent;
+    color: #162136;
+    font-size: 16px;
+}
+
+#login {
+    font-size: 26px;
+    color: #292529;
+    font-family: Arial;
+}
+
+#right {
+    float: right;
+    margin-right: 100px
+}
+
+.toolbar {
+    border: 1px solid #ccc;
+    border-bottom: 0;
+}
+
+#mycontent {
+    border: 1px solid #ccc;
+    height: 200px;
+    max-height: 800px;
+    background-color: #fff;
+}
+
+#newspic {
+    height: 0;
+    position: relative;
+    z-index: 10002 !important;
+}
+
+.w-e-panel-container {
+    background-color: #fff;
+    position: relative;
+}
+
+#mainpic {
+    width: 960px;
+    height: 680px;
+}

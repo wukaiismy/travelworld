@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/headnav.css">
+    <script src="./js/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>全世界路过</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+            <el-menu-item index="1" :default-active="activeIndex">
+                <a href="">
+                    <img id="imgs" src="./img/favicon12.png" alt="">
+                    <b id="login">全世界路过</b>
+                </a>
+            </el-menu-item>
+            <el-menu-item index="2" :default-active="activeIndex">
+                <a href="">首页</a>
+            </el-menu-item>
+            <el-menu-item index="3" :default-active="activeIndex">
+                <a href="">目的地</a>
+            </el-menu-item>
+            <el-menu-item index="4" :default-active="activeIndex">
+                <a href="">旅游攻略</a>
+            </el-menu-item>
+            <!-- <img id="imgs" src="./img/favicon12.png" alt=""> -->
+            <%if(username){%>
+                <el-menu-item index="5" :default-active="activeIndex">
+                    <a href="">个人中心</a>
+                </el-menu-item>
+                <%}%>
+                    <el-menu-item id="right" index="6">
+                        <%if(username){%>
+                            <span>欢迎你，</span>
+                            <%}else{%>
+                                <a href="/index/login">
+                                    注册|
+                                </a>
+                                <%}%>
+                                    <%if(username){%>
+                                        <%=username%>
+
+                                            <%}else{%>
+                                                <a href="/index/login">
+                                                    登录
+                                                </a>
+                                                <%}%>
+                    </el-menu-item>
+
+        </el-menu>
+    </div>
+</body>
+<script src="./js/headnav.js"></script>
+
+
+</html>

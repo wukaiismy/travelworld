@@ -10,23 +10,25 @@ module.exports = function() {
   var router = express.Router();
 
   //注册页面的渲染
-  router.get("/reg", function(req, res) {
-    res.render("company/reg");
-  });
+  // router.get("/login", function(req, res) {
+  //   res.render("company/login");
+  // });
 
   //注册页面的数据处理
   router.post("/regs", function(req, res) {
-    var str = res.body;
-    var pw = md5(str.passwd);
-    var $sql = "select uid,username,passwd from user where username=? limit 1";
-    mydb.query($sql, str.username, function(err, data) {
+    var str = req.body;
+    console.log(str);
+    var pw = md5(str.pas);
+    var $sql =
+      "select uid,usernames,passwd from user where usernames=? limit 1";
+    mydb.query($sql, str.use, function(err, data) {
       console.log(err);
-      console.log(data);
+      // console.log(data);
       if (data.length) {
         res.send('{"r":"exist"}');
       } else {
-        $sql1 = "INSERT INTO user(username,passwd,tel) VALUES(?,?,?)";
-        var datas = [str.username, pw, str.tel];
+        $sql1 = "INSERT INTO user(usernames,passwd,tel) VALUES(?,?,?)";
+        var datas = [str.use, pw, str.tel];
         mydb.query($sql1, datas, function(err, data) {
           console.log(err);
           // console.log(data.insertId);
@@ -48,24 +50,25 @@ module.exports = function() {
   //登录界面数据处理
   router.post("/login", function(req, res) {
     var str = req.body;
-    // console.log(str.passwd);
+    console.log(str);
     // console.log(pw);
-    var $sql = "select uid,username,passwd from user where username=? limit 1";
+    var $sql =
+      "select uid,usernames,passwd from user where usernames=? limit 1";
     mydb.query($sql, str.username, function(err, result) {
       console.log(err);
-      // console.log(result[0].passwd);
+      console.log(result);
       //引入加密
-      var pw = md5(str.passwd);
+      var pw = md5(str.password);
       //判断账号是否存在
       if (result.length) {
         if (result[0].passwd == pw) {
-          req.session.username = result[0].username;
-          req.session.sid = result[0].sid;
+          req.session.username = result[0].usernames;
+          req.session.sid = result[0].uid;
           if (str.merber) {
             res.cookie("username", str.username, {
               maxAge: 30 * 24 * 3600 * 1000
             });
-            res.cookie("passwd", str.passwd, {
+            res.cookie("passwd", str.password, {
               maxAge: 30 * 24 * 3600 * 1000
             });
           } else {
@@ -87,6 +90,79 @@ module.exports = function() {
       } else {
         return res.send('{"r":"not_exit"}');
       }
+    });
+  });
+  //进入到xi额游记
+  router.get("/mynotes", function(req, res) {
+    var $sql = "select * from strategy where 1=1 ";
+    mydb.query($sql, function(err, result) {
+      console.log(err);
+      // console.log(result);
+      res.render("company/mynotes", {
+        username: req.session.username
+      });
+    });
+  });
+
+  router.post("/mynotes", function(req, res) {
+    //把数据保存到数据库
+    var data = req.body;
+    // console.log(data);
+    var $data = [req.session.sid, data.title, data.pic, data.content];
+    var $sql =
+      "INSERT INTO strategy(uid,title, pic, content) VALUES ( ?, ?, ?, ?)";
+    mydb.query($sql, $data, function(err, result) {
+      if (err) {
+        console.log(err);
+        res.json({ r: "db_error" });
+      } else {
+        res.json({ r: "ok" });
+      }
+    });
+  });
+
+  //处理图片上传
+  //实际开发应该怎么样
+  var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      var folder =
+        "./uploads/" +
+        new Date().getFullYear() +
+        "/" +
+        (new Date().getMonth() + 1).toString().padStart(2, "0");
+      var fArr = folder.split("/");
+      var fe = ".";
+      for (var i = 1; i < fArr.length; i++) {
+        fe += "/" + fArr[i];
+        if (!fs.existsSync(fe)) {
+          fs.mkdirSync(fe, 0777);
+        }
+      }
+      cb(null, folder);
+    },
+    filename: function(req, file, cb) {
+      var filename =
+        new Date().valueOf() +
+        "_" +
+        Math.random()
+          .toString()
+          .substring(2, 8) +
+        path.parse(file.originalname).ext;
+      cb(null, filename);
+    }
+  });
+  var upload = multer({
+    storage: storage
+  });
+  router.post("/uploadimg", upload.array("uploadfile", 50), function(req, res) {
+    // console.log(req.files);
+    var data = [];
+    for (var i = 0; i < req.files.length; i++) {
+      data.push(req.files[i].path);
+    }
+    res.json({
+      errno: 0,
+      data: data
     });
   });
 

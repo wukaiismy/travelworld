@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>首页-全世界路过</title>
+	<!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+	<link rel="stylesheet" type="text/css" href="css/proj1.css" />
+	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
+	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<ul>
+			<li class="head-logo">
+				<a class="mfw-logo" title="马蜂窝自由行" href=""></a>
+			</li>
+			<li>
+				<a href="">首页</a>
+			</li>
+			<li>
+				<a href="">旅游攻略</a>
+			</li>
+			<li>
+				<a href="">目的地</a>
+			</li>
+			<li>
+				<a href="">登录|</a>
+				<a href="">注册</a>
+			</li>
+		</ul>
+	</div>
+	<div class="big">
+		<ul class="img">
+			<li>
+				<img src="./img/bg1.jpeg" alt="" />
+			</li>
+			<li>
+				<img src="img/bg2.jpeg" alt="" />
+			</li>
+			<li>
+				<img src="img/bg3.jpeg" alt="" />
+			</li>
+			<li>
+				<img src="img/bg4.jpeg" alt="" />
+			</li>
+		</ul>
+		<ul class="button">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="traver">
+		<p>旅行家专栏</p>
+		<ul>
+			<li style="background-image: url(img/wK1.jpeg);"></li>
+			<li style="background-image: url(img/wK2.jpeg);"></li>
+			<li style="background-image: url(img/wK3.jpeg);"></li>
+			<li style="background-image: url(img/wK4.jpeg);"></li>
+			<li style="background-image: url(img/wK2.jpeg);"></li>
+		</ul>
+	</div>
+	<div class="write">
+		<span>
+			<div>
+				<a>热门游记</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a>最新发表</a>
+			</div>
+		</span>
+		<ul class="write_a">
+			<li class="write_b">
+				<img src="img/wK3.jpeg" />
+				<div class="write_c">
+					<a>
+						<span>在冶勒湖——我会像青草一样呼吸</span>
+						<p>“最好是娴静地招呼那熹微的晨光，不必忙乱地奔向前去，也不要对落日忘记感谢那曾为晨光之垂死的光明。” 这是周作人先生在《我独爱生活应有的样子》描写的生活的样子。今年的五月就像是夏天...</p>
+						<ul>
+							<li class="li1"></li>
+							<li class="li2"></li>
+							<li class="li3"></li>
+						</ul>
+					</a>
+				</div>
+			</li>
+			<li>
+				<img src="img/wK2.jpeg" />
+			</li>
+			<li>
+				<img src="img/wK4.jpeg" />
+			</li>
+		</ul>
+	</div>
+	<div class="footer">
+		<ul class="left">
+			<li>旅游消费指南</li>
+			<li>100,000,000 位旅行者</li>
+			<li>920,000 家国际酒店</li>
+			<li>21,000,000 条真实点评</li>
+			<li>旅游行业第一部“玩法”</li>
+		</ul>
+		<ul class="center">
+			<li>关于我们</li>
+			<li>
+				<a>隐私政策服务协议</a>
+			</li>
+			<li>
+				<a>联系我们</a>
+			</li>
+			<li>
+				<a>网站地图</a>
+			</li>
+			<li>
+				<a>加入我们</a>
+			</li>
+		</ul>
+		<ul class="right">
+			<li>旅行服务</li>
+			<li>
+				<a>旅游攻略</a>
+			</li>
+			<li>
+				<a>旅游问答</a>
+			</li>
+			<li>
+				<a>旅游指南</a>
+			</li>
+			<li>
+				<a>APP下载</a>
+			</li>
+		</ul>
+		<ul class="bootom">
+			<li>
+				<a>好豆美食网</a>
+			</li>
+			<li>
+				<a>绿野户外</a>
+			</li>
+			<li>
+				<a>手机浏览器</a>
+			</li>
+			<li>
+				<a>上海地图</a>
+			</li>
+			<li>
+				<a>天气预报查询</a>
+			</li>
+			<li>
+				<a>同程旅游</a>
+			</li>
+			<li>
+				<a>车讯网</a>
+			</li>
+			<li>
+				<a>遨游旅游网</a>
+			</li>
+			<li>
+				<a>手机浏览器</a>
+			</li>
+			<li>
+				<a>天巡网短租房</a>
+			</li>
+			<li>
+				<a>更多友情链接>></a>
+			</li>
+
+		</ul>
+	</div>
+	<script>
+		let imgs = $('.img li');
+		let btn = $('.button li');
+
+		btn.each(function (ind, el) {
+			$(el).mouseover(function () {
+				//链式操作
+				imgs.hide().eq(ind).show();
+				//先把所有的背景颜色改成白色
+				btn.removeClass('btn_hover').eq(ind).addClass('btn_hover');
+			});
+		});
+	</script>
+</body>
+
+</html>
