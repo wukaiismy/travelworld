@@ -4,47 +4,72 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页-全世界路过</title>
-	<!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-	<link rel="stylesheet" type="text/css" href="css/proj1.css" />
+
 	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<link rel="stylesheet" href="css/proj1.css" />
+	<link rel="stylesheet" href="./css/headnav.css">
+	<script src="./js/vue.js"></script>
+	<!-- import JavaScript -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<ul>
-			<li class="head-logo">
-				<a class="mfw-logo" title="马蜂窝自由行" href=""></a>
-			</li>
-			<li>
-				<a href="">首页</a>
-			</li>
-			<li>
-				<a href="">旅游攻略</a>
-			</li>
-			<li>
+	<div id="app">
+		<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+			<el-menu-item index="1" :default-active="activeIndex">
+				<a href="">
+					<img id="imgs" src="./img/favicon12.png" alt="">
+					<b id="login">全世界路过</b>
+				</a>
+			</el-menu-item>
+			<el-menu-item index="2" :default-active="activeIndex">
+				<a href="index">首页</a>
+			</el-menu-item>
+			<el-menu-item index="3" :default-active="activeIndex">
 				<a href="">目的地</a>
-			</li>
-			<li>
-				<a href="">登录|</a>
-				<a href="">注册</a>
-			</li>
-		</ul>
+			</el-menu-item>
+			<el-menu-item index="4" :default-active="activeIndex">
+				<a href="">旅游攻略</a>
+			</el-menu-item>
+			<img id="imgs" src="./img/favicon12.png" alt="">
+			<%if(username){%>
+				<el-menu-item index="5" :default-active="activeIndex">
+					<a href="mynotes">个人中心</a>
+				</el-menu-item>
+				<%}%>
+					<el-menu-item id="right" index="6">
+						<%if(username){%>
+							<span>欢迎你，</span>
+							<%}else{%>
+								<a href="/index/login">
+									注册|
+								</a>
+								<%}%>
+									<%if(username){%>
+										<%=username%>
+
+											<%}else{%>
+												<a href="/index/login">
+													登录
+												</a>
+												<%}%>
+					</el-menu-item>
+
+		</el-menu>
 	</div>
+
+
+
 	<div class="big">
 		<ul class="img">
-			<li>
-				<img src="./img/bg1.jpeg" alt="" />
-			</li>
-			<li>
-				<img src="img/bg2.jpeg" alt="" />
-			</li>
-			<li>
-				<img src="img/bg3.jpeg" alt="" />
-			</li>
-			<li>
-				<img src="img/bg4.jpeg" alt="" />
-			</li>
+			<%for(var i=0;i<4;i++){%>
+				<li>
+					<img src="<%=datalist[i].pic%>" style="width: 100%;height: 630px;" alt="">
+				</li>
+				<%}%>
+
 		</ul>
 		<ul class="button">
 			<li></li>
@@ -55,42 +80,42 @@
 	</div>
 	<div class="traver">
 		<p>旅行家专栏</p>
-		<ul>
-			<li style="background-image: url(img/wK1.jpeg);"></li>
-			<li style="background-image: url(img/wK2.jpeg);"></li>
-			<li style="background-image: url(img/wK3.jpeg);"></li>
-			<li style="background-image: url(img/wK4.jpeg);"></li>
-			<li style="background-image: url(img/wK2.jpeg);"></li>
+		<ul class="imgs">
+			<%for(var i=1;i<5;i++){%>
+				<li>
+					<img src="<%=datalist[i].pic%>" style="width: 240px;height:120px;" alt="">
+
+				</li>
+				<%}%>
+
 		</ul>
 	</div>
 	<div class="write">
-		<span>
-			<div>
-				<a>热门游记</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>最新发表</a>
-			</div>
-		</span>
+		<div class="title">
+			<a>热门游记</a>
+		</div>
 		<ul class="write_a">
-			<li class="write_b">
-				<img src="img/wK3.jpeg" />
-				<div class="write_c">
-					<a>
-						<span>在冶勒湖——我会像青草一样呼吸</span>
-						<p>“最好是娴静地招呼那熹微的晨光，不必忙乱地奔向前去，也不要对落日忘记感谢那曾为晨光之垂死的光明。” 这是周作人先生在《我独爱生活应有的样子》描写的生活的样子。今年的五月就像是夏天...</p>
-						<ul>
-							<li class="li1"></li>
-							<li class="li2"></li>
-							<li class="li3"></li>
-						</ul>
+			<%for(var i=0;i<5;i++){%>
+				<li class="write_b">
+					<a href="">
+						<img src="<%=datalist[i].pic%>" style="width: 220px;height:150px;" alt="">
 					</a>
-				</div>
-			</li>
-			<li>
-				<img src="img/wK2.jpeg" />
-			</li>
-			<li>
-				<img src="img/wK4.jpeg" />
-			</li>
+					<div class="write_c">
+
+						<h3>
+							<a class="nones">
+								<%-datalist[i].title%>
+							</a>
+						</h3>
+
+
+						<small class="contentss">
+							<%-datalist[i].content%>
+						</small>
+
+					</div>
+				</li>
+				<%}%>
 		</ul>
 	</div>
 	<div class="footer">
@@ -169,6 +194,12 @@
 		</ul>
 	</div>
 	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				activeIndex: ""
+			}
+		});
 		let imgs = $('.img li');
 		let btn = $('.button li');
 

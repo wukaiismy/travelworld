@@ -92,6 +92,22 @@ module.exports = function() {
       }
     });
   });
+
+  //进入到首页
+  router.get("/index", function(req, res) {
+    var $sql = "select * from strategy where status=1 order by sid DESC";
+    mydb.query($sql, function(err, result) {
+      console.log(err);
+      console.log(result);
+      res.render("company/index", {
+        username: req.session.username,
+        datalist: result
+      });
+    });
+  });
+
+  //
+
   //进入到xi额游记
   router.get("/mynotes", function(req, res) {
     var $sql = "select * from strategy where 1=1 ";

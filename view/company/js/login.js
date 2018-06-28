@@ -74,7 +74,7 @@ window.onload = function() {
               .html("")
           );
         } else if (data.r == "passwd_err") {
-            alert("密码错误");
+          alert("密码错误");
           $(this)
             .parent()
             .find(".kong")
@@ -87,9 +87,8 @@ window.onload = function() {
               .html("")
           );
         } else if (data.r == "ok") {
-          alert("登录成功")
-         window.location.href = "mynotes";
-
+          alert("登录成功");
+          window.location.href = "index";
         }
       },
       error: function(err) {

@@ -1,202 +1,238 @@
-*{
-	padding: 0;
+* {
 	margin: 0;
+	padding: 0;
 }
-body{
-	width: 100%;
-}
-li{
+
+li {
 	list-style-type: none;
-	cursor: pointer;
-		}
-
-.container>ul{
-		width: 100%;
-		height: 58px;
-		color: red;
-	}
-
-.container>ul li{
-		width:20%;
-		height: 58px;
-		line-height: 58px;
-		text-align: center;
-		float: left;
-	}
-.head-logo{
-		width: 20px;
-		height:20px;
-		background-image: url(../img/header.png);
-		background-repeat: no-repeat;
-		background-position: 63px 13px;
-	}
-.img, .big{
-			width: 100%;
-			height: 500px;
-			overflow: hidden;
-			position: relative;
-		}
-.button{
-			width: 95px;
-		}
-.button li{
-			width: 12px;
-			height: 12px;
-			border-radius: 50%;
-			margin-left: 10px;
-			background-color:#fff ;
-			float: left;
-		}
-.container .button{
-			position: absolute;
-			bottom: 20px;
-			left: 40%;
-		}
-		
-		
-.small{
-			width: 600px;
-			height: 300px;
-			overflow: hidden;
-			position: relative;
-		}
-		
-.small .img{
-			width: 100%;
-			overflow: hidden;
-		}
-.small .img li img{
-			width: 600px;
-			height: 300px;
-
-		}
-		
-.button .btn_hover{
-			background-color:#f01234;
-			width:15px;
-			height:15px;
-		}
-.traver p{
-	font-size: 16px;
-	color: black;
-	height: 50px;
-	line-height: 50px;
 }
-.traver li{
-	width:258px;
-	height: 120px;
-	margin: 0 5.6px;
+
+.big {
+	position: relative;
+}
+
+.img,
+.big li {
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+}
+
+.button {
+	width: 95px;
+}
+
+.button li {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid #f01234;
+	margin-left: 10px;
+	background-color: #fff;
 	float: left;
 }
-.write{
-	width: 100%;
+
+.big .button {
+	position: absolute;
+	bottom: 20px;
+	left: 45%;
 }
-.write span{
+
+.small {
+	width: 600px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.small .img {
+	width: 600px;
+	height: 300px;
+	overflow: hidden;
+}
+
+.small .img li img {
+	width: 600px;
+	height: 300px;
+}
+
+.button .btn_hover {
+	background-color: #f01234;
+	width: 12px;
+	height: 12px;
+}
+
+.traver {
+	width: 1000px;
+	height: 300px;
+	margin: 0 auto;
+	/*border: 1px solid #000000;*/
+}
+
+.traver p {
+	width: 200px;
+	text-align: center;
 	font-size: 16px;
+	color: black;
 	height: 50px;
 	line-height: 50px;
-	color: black;
-	
 }
-.write span div{
+
+.traver p:hover {
+	background-color: orange;
+	border-bottom: 1px solid burlywood;
+}
+
+.traver li {
+	width: 20%;
+	height: 120px;
+	margin: 0 24px;
+	float: left;
+}
+
+.traver li:hover {
+	background-color: orange;
+	opacity: .5;
+}
+
+.write {
+	width: 100%;
+}
+
+.write .title {
+	width: 200px;
+	text-align: center;
+	font-size: 16px;
+	color: black;
+	height: 50px;
+	line-height: 50px;
+}
+
+.write .title:hover {
+	background-color: orange;
+	border-bottom: 1px solid burlywood;
+}
+
+.write div {
 	width: 1000px;
 	margin: 0 auto;
 	cursor: pointer;
-}	
-.write .write_a{
+}
+
+.write .write_a {
 	width: 1000px;
 	margin: 0 auto;
 }
-.write>ul>li{
+
+.write>ul>li {
 	margin-bottom: 30px;
 	width: 100%;
 	height: 240px;
 	background-color: #fafafa;
 	position: relative;
-	border: 1px solid #000000;
+	/*border: 1px solid #000000;*/
 }
-.write ul li img{
+
+.write ul li img {
 	width: 300px;
 	height: 200px;
 	margin: 20px 680px 20px 20px;
-}	
-.write .write_a .write_b .write_c{
+}
+
+.write .write_a .write_b .write_c {
 	width: 660px;
 	position: absolute;
 	right: 0;
 	top: 20px;
 }
-.write_c ul{
+
+.write_c ul {
 	position: absolute;
 	bottom: -130PX;
 }
-.write_c ul li{
+
+.write_c ul li {
 	float: left;
-	
 }
-.write_c ul .li1{
+
+.write_c ul .li1 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../img/index1.png);
+	background-image: url(../assets/index1.png);
 	background-repeat: no-repeat;
 	background-position: 0px -49px;
-	
 }
-.write_c ul .li2{
+
+.write_c ul .li2 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../img/index1.png);
+	background-image: url(../assets/index1.png);
 	background-repeat: no-repeat;
 	background-position: -30px -49px;
 	margin-left: 300px;
 }
-.write_c ul .li3{
+
+.write_c ul .li3 {
 	width: 40px;
 	height: 40px;
-	background-image: url(../img/index1.png);
+	background-image: url(../assets/index1.png);
 	background-repeat: no-repeat;
 	background-position: -60px 2px;
 	margin-left: 600px;
 	margin-bottom: 20px;
 }
-.footer{
+
+.footer {
 	width: 100%;
-	height: 400px;
+	height: 300px;
 	background-color: #3c3c3c;
 	position: relative;
 }
-.footer ul li{
+
+.footer ul li {
 	padding-top: 8px;
 	color: #c2c2c2;
 }
-.footer .left{
+
+.footer .left {
 	position: absolute;
 	left: 182px;
 	top: 35px;
-	
 }
-.footer .center{
+
+.footer .center {
 	position: absolute;
 	left: 600px;
 	top: 35px;
 }
-.footer .right{
+
+.footer .right {
 	position: absolute;
 	right: 220px;
 	top: 35px;
 }
 
-.footer .bootom{
+.footer .bootom {
 	height: 20px;
 	position: absolute;
 	bottom: 20px;
 	left: 220px;
-	border-bottom-color:red;
-
-
+	border-bottom-color: red;
 }
-.footer .bootom li{
-		float: left;
-		text-align: center;
-		padding-left: 10px;
+
+.footer .bootom li {
+	float: left;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.contentss {
+	text-align: left;
+	text-indent: 2em;
+	line-height: 24px;
+	display: block;
+	height: 50px;
+	overflow: hidden;
+	width: 600px;
 }
