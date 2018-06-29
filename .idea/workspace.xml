@@ -4,12 +4,49 @@
     <list default="true" id="5a459ae8-a867-4050-a718-d9fa57301a2f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/module/company/index.js" afterPath="$PROJECT_DIR$/module/company/index.js" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1529995637753_984395.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1529998190097_723913.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1529998224693_551399.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530002957435_995738.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530003192252_762067.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530005190257_183272.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530005590165_970559.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530005675022_148413.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530089091438_313319.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530089535935_220270.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530089713689_673242.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530090413322_893681.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530090862306_391792.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530090921246_101185.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530091282872_280373.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530092158317_336693.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530092456189_920304.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093175860_197450.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093244298_478930.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093296593_512214.jpeg" afterPath="$PROJECT_DIR$/uploads/2018/06/1530093296593_512214.jpeg" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093386213_573956.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093420239_760365.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093482422_566932.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093523446_450084.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093670239_435111.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093746242_456074.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093812735_108960.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530093849518_613383.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530094729913_899692.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530094832417_985064.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530095469274_975377.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530095943838_887833.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530100650927_838920.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530100666872_091411.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530101520171_394457.jpeg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018/06/1530101539406_092466.jpeg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/view/company/css/headnav.css" afterPath="$PROJECT_DIR$/view/company/css/headnav.css" />
       <change beforePath="$PROJECT_DIR$/view/company/css/proj1.css" afterPath="$PROJECT_DIR$/view/company/css/proj1.css" />
-      <change beforePath="$PROJECT_DIR$/view/company/headnav.html" afterPath="$PROJECT_DIR$/view/company/headnav.html" />
+      <change beforePath="$PROJECT_DIR$/view/company/css/proj2.css" afterPath="$PROJECT_DIR$/view/company/css/proj2.css" />
+      <change beforePath="$PROJECT_DIR$/view/company/img/logo.png" afterPath="$PROJECT_DIR$/view/company/img/logo.png" />
       <change beforePath="$PROJECT_DIR$/view/company/index.html" afterPath="$PROJECT_DIR$/view/company/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/company/index1.html" afterPath="" />
       <change beforePath="$PROJECT_DIR$/view/company/js/headnav.js" afterPath="$PROJECT_DIR$/view/company/js/headnav.js" />
-      <change beforePath="$PROJECT_DIR$/view/company/js/login.js" afterPath="$PROJECT_DIR$/view/company/js/login.js" />
       <change beforePath="$PROJECT_DIR$/view/company/mynotes.html" afterPath="$PROJECT_DIR$/view/company/mynotes.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/company/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1800">
-              <caret line="75" column="8" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
+            <state relative-caret-position="404">
+              <caret line="216" column="21" lean-forward="false" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -47,18 +84,18 @@
       <file leaf-file-name="mynotes.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/company/mynotes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1944">
-              <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+            <state relative-caret-position="2736">
+              <caret line="114" column="7" lean-forward="false" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="headnav.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="headnav.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/company/js/headnav.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+            <state relative-caret-position="360">
+              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -90,11 +127,11 @@
         <option value="$PROJECT_DIR$/nodejs/view/replace.html" />
         <option value="$PROJECT_DIR$/nodejs/view/newsadd.html" />
         <option value="$PROJECT_DIR$/view/admin/newsadd.html" />
-        <option value="$PROJECT_DIR$/view/company/index.html" />
         <option value="$PROJECT_DIR$/view/company/css/proj1.css" />
         <option value="$PROJECT_DIR$/view/company/login.html" />
         <option value="$PROJECT_DIR$/view/company/js/login.js" />
         <option value="$PROJECT_DIR$/view/company/mynotes.html" />
+        <option value="$PROJECT_DIR$/view/company/index.html" />
       </list>
     </option>
   </component>
@@ -115,7 +152,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="86" />
-    <option name="y" value="118" />
+    <option name="y" value="141" />
     <option name="width" value="1090" />
     <option name="height" value="952" />
   </component>
@@ -134,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,6 +201,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,15 +244,17 @@
       <workItem from="1530008984801" duration="631000" />
       <workItem from="1530061833097" duration="12946000" />
       <workItem from="1530109225130" duration="599000" />
-      <workItem from="1530147747295" duration="15000" />
+      <workItem from="1530147747295" duration="3998000" />
+      <workItem from="1530234349231" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30294000" />
+    <option name="totallyTimeSpent" value="34291000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="86" y="118" width="1090" height="952" extended-state="1" />
+    <frame x="86" y="141" width="1090" height="952" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -247,6 +286,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/view/company/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2496">
+          <caret line="104" column="22" lean-forward="false" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/company/mynotes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2736">
+          <caret line="114" column="7" lean-forward="true" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/company/js/headnav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/company/css/proj1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="180" column="35" lean-forward="false" selection-start-line="180" selection-start-column="35" selection-end-line="180" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/company/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5184">
+          <caret line="216" column="21" lean-forward="true" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/company/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2496">
@@ -366,22 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/company/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
-          <caret line="75" column="8" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/company/mynotes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/company/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2496">
@@ -390,10 +453,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/company/mynotes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2736">
+          <caret line="114" column="7" lean-forward="false" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/company/js/headnav.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        <state relative-caret-position="360">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/company/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="216" column="21" lean-forward="false" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
           <folding />
         </state>
       </provider>

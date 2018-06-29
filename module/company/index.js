@@ -95,10 +95,11 @@ module.exports = function() {
 
   //进入到首页
   router.get("/index", function(req, res) {
-    var $sql = "select * from strategy where status=1 order by sid DESC";
+    var $sql =
+      "select s.*,user.usernames from strategy as s left join user on s.uid=user.uid where s.status=1 order by sid DESC";
     mydb.query($sql, function(err, result) {
       console.log(err);
-      console.log(result);
+      // console.log("666", result, "666");
       res.render("company/index", {
         username: req.session.username,
         datalist: result
@@ -106,7 +107,59 @@ module.exports = function() {
     });
   });
 
-  //
+  ////进入到个人中心
+  router.get("/center", function(req, res) {
+    var $sql =
+      "select * from strategy where status=1 and uid=? order by sid DESC";
+    mydb.query($sql, req.session.sid, function(err, result) {
+      console.log(err);
+      // console.log(result);
+      res.render("company/center", {
+        username: req.session.username,
+        datalist: result
+      });
+    });
+  });
+  //点赞功能
+  router.get("/ding", function(req, res) {
+    // console.log(req.query);
+    var str = req.query;
+    var $sql = "select ding from strategy where sid=? limit 1";
+    mydb.query($sql, str.sid, function(err, rel) {
+      console.log(err);
+      // console.log(rel);
+      var ding = rel[0].ding + 1;
+      // console.log(ding);
+      var $sql1 = "UPDATE  strategy SET ding=? WHERE sid=? ";
+      mydb.query($sql1, [ding, str.sid], function(err, datas) {
+        res.json({ ding: ding });
+      });
+    });
+  });
+  ////进入到目的地
+  router.get("/mudidi", function(req, res) {
+    var $sql =
+      "select v.*,p.province from view as v left join province as p on v.pid=p.pid where 1=1 order by vid DESC";
+    mydb.query($sql, function(err, result) {
+      console.log(err);
+      // console.log(result);
+      var $sql1 = "select * from province where 1=1 order by pid DESC";
+      mydb.query($sql1, function(err, rel) {
+        // console.log(rel);
+        res.render("company/mudidi", {
+          username: req.session.username,
+          views: result,
+          pro: rel
+        });
+      });
+    });
+  });
+  //进入到详情介绍
+  router.get("/view", function(req, res) {
+    res.render("company/view", {
+      username: req.session.username
+    });
+  });
 
   //进入到xi额游记
   router.get("/mynotes", function(req, res) {
@@ -124,9 +177,19 @@ module.exports = function() {
     //把数据保存到数据库
     var data = req.body;
     // console.log(data);
-    var $data = [req.session.sid, data.title, data.pic, data.content];
+    var views = data.view.trim().split(" ");
+    // console.log(views);
+
+    var $data = [
+      views[0],
+      views[1],
+      req.session.sid,
+      data.title,
+      data.pic,
+      data.content
+    ];
     var $sql =
-      "INSERT INTO strategy(uid,title, pic, content) VALUES ( ?, ?, ?, ?)";
+      "INSERT INTO strategy(view,province, uid,title, pic, content) VALUES ( ?, ?,?, ?, ?, ?)";
     mydb.query($sql, $data, function(err, result) {
       if (err) {
         console.log(err);
