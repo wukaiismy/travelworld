@@ -37,7 +37,7 @@
                 <!-- <img id="imgs" src="./img/favicon12.png" alt=""> -->
                 <%if(username){%>
                     <el-menu-item index="5" :default-active="activeIndex">
-                        <a href="mynotes">个人中心</a>
+                        <a href="center">个人中心</a>
                     </el-menu-item>
                     <%}%>
                         <el-menu-item id="right" index="6">
@@ -50,7 +50,9 @@
                                     <%}%>
                                         <%if(username){%>
                                             <%=username%>
-
+                                                <a href="login" style="margin-left: 30px;color: red">
+                                                    <b>退出</b>
+                                                </a>
                                                 <%}else{%>
                                                     <a href="/index/login">
                                                         登录

@@ -93,10 +93,55 @@ module.exports = function() {
     });
   });
 
+  //进入到首页，具有分页功能
+  router.get("/indexdata", async (req, res) => {
+    //需要的参数用一个变量来保存
+    var alldatas = {
+      username: req.session.username,
+      datalist: {},
+      totalpage: 0,
+      page: 1
+    };
+    //定义每次查询需要显示的数量
+    var pagenum = 5;
+    //获取当前的页数
+    var page = req.query.page;
+    //判定页数相关参数
+    if (page < 1) page = 1;
+    alldatas.page = page;
+    // console.log(page);
+    //查询数据库的起始位
+    var start = pagenum * (page - 1);
+    //数据库查询总共的条数以及多少页（总条数/pagenum每页的）
+    var totalnum = 0;
+    var $numsql = "SELECT count(sid) AS totalnum FROM strategy WHERE status=1 ";
+    var $row = await (function() {
+      return new Promise((resolve, reject) => {
+        mydb.query($numsql, function(err, results) {
+          resolve(results);
+          console.log(err);
+          // console.log(results);
+        });
+      });
+    })();
+    // console.log(start);
+    //确定总页数
+    totalnum = $row[0].totalnum;
+    alldatas.totalpage = Math.ceil(totalnum / pagenum);
+    //查找出相关的数据
+    var $sql1 =
+      "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.status=1 limit ?,?";
+    mydb.query($sql1, [start, pagenum], function(errs, data) {
+      console.log(errs);
+      // console.log(data);
+      alldatas.datalist = data;
+      res.json({ lista: alldatas });
+    });
+  });
+
   //进入到首页
   router.get("/index", function(req, res) {
-    var $sql =
-      "select s.*,user.usernames from strategy as s left join user on s.uid=user.uid where s.status=1 order by sid DESC";
+    var $sql = "select pic from strategy  where status=1 order by sid DESC";
     mydb.query($sql, function(err, result) {
       console.log(err);
       // console.log("666", result, "666");

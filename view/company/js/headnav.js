@@ -44,6 +44,7 @@ window.onload = function() {
               .then(function(response) {
                 alert("上传成功，待审核");
                 console.log(response);
+                window.location.href = "center";
               })
               .catch(function(error) {
                 console.log(error);

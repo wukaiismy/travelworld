@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页-全世界路过</title>
-
 	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
@@ -48,19 +47,23 @@
 								</a>
 								<%}%>
 									<%if(username){%>
-										<%=username%>
-
-											<%}else{%>
-												<a href="/index/login">
-													登录
-												</a>
-												<%}%>
+										<span>
+											<%=username%>
+										</span>
+										<a href="login" style="margin-left: 30px;color: red">
+											<b>退出</b>
+										</a>
+										<%}else{%>
+											<a href="/index/login">
+												登录
+											</a>
+											<%}%>
 					</el-menu-item>
-
 		</el-menu>
+		<div :class="{tops:isFixed}">
+			<b class="el-icon-caret-top" @click="top" title="返回顶部"></b>
 
-
-
+		</div>
 
 		<div class="big">
 			<ul class="img">
@@ -69,7 +72,6 @@
 						<img src="<%=datalist[i].pic%>" style="width: 100%;height: 630px;" alt="">
 					</li>
 					<%}%>
-
 			</ul>
 			<ul class="button">
 				<li></li>
@@ -84,10 +86,8 @@
 				<%for(var i=2;i<6;i++){%>
 					<li>
 						<img src="<%=datalist[i].pic%>" style="width: 240px;height:120px;" alt="">
-
 					</li>
 					<%}%>
-
 			</ul>
 		</div>
 		<div class="write">
@@ -95,56 +95,54 @@
 				<a>热门游记</a>
 			</div>
 			<ul class="write_a">
-				<%for(var i=0;i<datalist.length;i++){%>
-					<li class="write_b">
-						<a href="">
-							<img src="<%=datalist[i].pic%>" style="width: 220px;height:150px;" alt="">
-						</a>
-						<div class="write_c">
+				<li class="write_b" v-for="(lists,index) in data">
+					<a href="">
+						<img :src="lists.pic" style="width: 220px;height:150px;" alt="">
+					</a>
+					<div class="write_c">
+						<h3>
+							<a class="nones" href="">
+								{{lists.title}}
+							</a>
+						</h3>
+						<small class="contentss" v-html="lists.content">
 
-							<h3>
-								<a class="nones">
-									<%-datalist[i].title%>
+						</small>
+						<div class="butom">
+							<span>
+								<i class="addss"></i>
+								<a href="">
+									{{lists.view}}
 								</a>
-							</h3>
+								，by
+							</span>
+							<span class="bbc">
+								<a href="">
+									{{lists.usernames}}
+								</a>
+							</span>
+							<span>
+								<i class="see"></i>
+								97/3
+							</span>
+							<span class="last">
 
-
-							<small class="contentss">
-								<%-datalist[i].content%>
-							</small>
-							<div class="butom">
-								<span>
-									<i class="addss"></i>
-									<a href="">
-										<%=datalist[i].view%>
-									</a>
-									，by
+								<em>
+									{{lists.ding}}
+								</em>
+								<p class="btn-ding1">+1</p>
+								<span class="btn-ding" @click.stop="ding($event,lists.sid)" :value="lists.sid">
 								</span>
-								<span class="bbc">
-									<a href="">
-										<%=datalist[i].usernames%>
-									</a>
-								</span>
-								<span>
-									<i class="see"></i>
-									97/3
-								</span>
-								<span class="last">
-
-									<em>
-										<%=datalist[i].ding%>
-									</em>
-									<p class="btn-ding1">+1</p>
-									<span class="btn-ding" @click.stop="ding($event,<%=datalist[i].sid%>)" value="<%=datalist[i].sid%>">
-
-									</span>
-								</span>
-
-							</div>
+							</span>
 						</div>
-					</li>
-					<%}%>
+					</div>
+				</li>
 			</ul>
+			<div>
+				<el-pagination background @current-change="pages" layout="prev,pager,next" :total="totalpage*10">
+				</el-pagination>
+			</div>
+
 		</div>
 		<div class="footer">
 			<ul class="left">
@@ -224,6 +222,7 @@
 	</div>
 	<script src="./js/index.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </body>
 
 </html>
