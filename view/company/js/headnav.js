@@ -5,7 +5,9 @@ window.onload = function() {
       activeIndex: "",
       pic: "",
       title: "",
-      content: ""
+      content: "",
+      message: "hhh",
+      type: "innfo"
     },
     methods: {
       getChange: function(event) {
@@ -14,27 +16,45 @@ window.onload = function() {
       },
       btns: function() {
         var This = this;
-
-        console.log(pic);
-
-        //发送一个`POST`请求
-        axios.defaults.headers.post["Content-Type"] =
-          "application/x-www-form-urlencoded";
-        axios
-          .post(
-            "/index/mynotes",
-            Qs.stringify({
-              pic: This.pic,
-              title: This.title,
-              content: This.content
-            })
-          )
-          .then(function(response) {
-            alert("上传成功，待审核");
-            console.log(response);
+        // console.log(pic);
+        this.$prompt("按'四川 成都'的格式输入", "请填写游记目的地", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          inputPattern: /^(\S+)(\ {1})(\S+)$/,
+          inputErrorMessage: "格式不正确"
+        })
+          .then(({ value }) => {
+            this.$message({
+              type: "success",
+              message: value
+            });
+            //发送一个`POST`请求
+            axios.defaults.headers.post["Content-Type"] =
+              "application/x-www-form-urlencoded";
+            axios
+              .post(
+                "/index/mynotes",
+                Qs.stringify({
+                  pic: This.pic,
+                  title: This.title,
+                  content: This.content,
+                  view: value
+                })
+              )
+              .then(function(response) {
+                alert("上传成功，待审核");
+                console.log(response);
+              })
+              .catch(function(error) {
+                console.log(error);
+              });
           })
-          .catch(function(error) {
-            console.log(error);
+          .catch(value => {
+            console.log(value);
+            this.$message({
+              type: "info",
+              message: "取消输入"
+            });
           });
       }
     }

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>个人中心-全世界路过</title>
+	<link rel="stylesheet" type="text/css" href="./css/my_mf.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
+	<link rel="stylesheet" href="./css/headnav.css">
+	<script src="./js/vue.js"></script>
+	<!-- import JavaScript -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</head>
+
+<body>
+	<div class="head">
+
+		<div id="app">
+			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+				<el-menu-item index="1" :default-active="activeIndex">
+					<a href="">
+						<img id="imgs" src="./img/favicon12.png" alt="">
+						<b id="login">全世界路过</b>
+					</a>
+				</el-menu-item>
+				<el-menu-item index="2" :default-active="activeIndex">
+					<a href="index">首页</a>
+				</el-menu-item>
+				<el-menu-item index="3" :default-active="activeIndex">
+					<a href="mudidi">目的地</a>
+				</el-menu-item>
+				<el-menu-item index="4" :default-active="activeIndex">
+					<a href="">旅游攻略</a>
+				</el-menu-item>
+				<img id="imgs" src="./img/favicon12.png" alt="">
+				<%if(username){%>
+					<el-menu-item index="5" :default-active="activeIndex">
+						<a href="center">个人中心</a>
+					</el-menu-item>
+					<%}%>
+						<el-menu-item id="right" index="6">
+							<%if(username){%>
+								<span>欢迎你，</span>
+								<%}else{%>
+									<a href="/index/login">
+										注册|
+									</a>
+									<%}%>
+										<%if(username){%>
+											<%=username%>
+
+												<%}else{%>
+													<a href="/index/login">
+														登录
+													</a>
+													<%}%>
+						</el-menu-item>
+
+			</el-menu>
+		</div>
+
+
+
+
+
+
+
+		<div class="person">
+			<a href="">
+				<img src="./img/person.jpeg">
+			</a>
+		</div>
+	</div>
+	<div class="head1">
+		<img src="./img/ditu.png" class="ditu">
+		<div class="jia">
+			<img src="./img/jia.png">
+		</div>
+		<div class="jian">
+			<img src="./img/jian.png">
+		</div>
+		<div class="right">
+			<ul class="right1">
+				<li>1 国家</li>
+				<li>2 足迹</li>
+				<li>0 点评</li>
+			</ul>
+			<div class="sta">
+				<p class="wen">开始添加足迹</p>
+				<div class="tu"></div>
+			</div>
+		</div>
+		<div class="center"></div>
+		<div class="box">
+			<button type="button" name="" id="tianjia">
+				<div class="tu1"></div>
+				开始添加足迹
+			</button>
+		</div>
+	</div>
+	<div class="head_f">
+		<ul class="my">
+			<a>
+				<li>我的窝</li>
+			</a>
+			<a>
+				<li>我的游记</li>
+			</a>
+			<a>
+				<li>我的问答</li>
+			</a>
+			<a>
+				<li>我的足迹</li>
+			</a>
+			<a>
+				<li>我的点评</li>
+			</a>
+			<a>
+				<li>我的结伴</li>
+			</a>
+		</ul>
+	</div>
+	<div class="banxin">
+		<div class="my_news">
+			<img src="./img/touxiang11.jpeg">
+			<p class="p1">
+				<%=username%>
+			</p>
+			<div class="tiaozhuan">
+				<ul class="tiao">
+					<li class="liv">
+						<a>
+							<img src="./img/vip.png">
+						</a>
+					</li>
+					<li class="lid">
+						<a>
+							<img src="./img/duo.png">
+						</a>
+					</li>
+					<li class="liff">
+						<a>
+							<img src="./img/fuhao.png">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="spp">
+				<span class="dengj">等级:</span>
+				<a href="" class="level">LV:15
+			</div>
+			<button class="jianjie">填写个人资料</button>
+			<div class="last">
+				<ul class="last1">
+					<li>
+						<p>4</p>
+						<span>关注</span>
+					</li>
+					<li>
+						<p>156686565</p>
+						<span>粉丝</span>
+					</li>
+					<li>
+						<p>255</p>
+						<span>蜂蜜</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="center2">
+			<ul class="daohang2">
+				<li>
+					<a href="mynotes">
+						<img src="./img/xie.png">
+						<p>写游记</p>
+					</a>
+				</li>
+				<li>
+					<img src="./img/wen.png">
+					<p>问达人</p>
+				</li>
+				<li>
+					<img src="./img/zuji.png">
+					<p>添加足迹</p>
+				</li>
+				<li>
+					<img src="./img/fabu.png">
+					<p>发布结伴</p>
+				</li>
+			</ul>
+		</div>
+		<div class="youji">
+			<div class="xie">
+				<p class="my_you">我的游记</p>
+				<a href="mynotes">
+					<button class="but" type="button">
+						<img src="./img/xieyou.png" class="xieyou">
+						<p>写游记</p>
+					</button>
+				</a>
+			</div>
+			<div class="tutu">
+				<ul>
+					<%for(var i=0;i<datalist.length;i++){%>
+						<li>
+							<span class="biaoti">
+								<%=datalist[i].title%>
+							</span>
+							<br>
+							<img src="<%=datalist[i].pic%>">
+
+						</li>
+						<%}%>
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				activeIndex: ""
+			}
+		});
+	</script>
+</body>
+
+</html>

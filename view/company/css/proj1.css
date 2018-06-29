@@ -236,3 +236,66 @@ li {
 	overflow: hidden;
 	width: 600px;
 }
+
+.butom {
+	position: relative;
+	top: 60px
+}
+
+.butom span {
+	margin-left: 15px;
+}
+
+.butom .bbc {
+	margin-left: 5px;
+}
+
+i,
+.btn-ding {
+	background: url(../img/index1.png) no-repeat;
+}
+
+.butom span .addss {
+	display: inline-block;
+	float: left;
+	margin: 4px 5px 0 0;
+	width: 14px;
+	height: 16px;
+	background-position: 0 -50px !important;
+	overflow: hidden;
+}
+
+.butom span {
+	display: inline-block
+}
+
+.see {
+	float: left;
+	margin: 4px 5px 0 0;
+	width: 18px;
+	height: 14px;
+	background-position: -30px -50px !important;
+}
+
+.butom span .btn-ding {
+	display: inline-block;
+	float: right;
+	margin-left: 8px;
+	margin-top: -5px;
+	width: 38px;
+	height: 33px;
+	background-position: -60px 0 !important;
+	overflow: hidden;
+}
+
+.butom .last {
+	margin-left: 200px
+}
+
+.btn-ding1 {
+	position: absolute;
+	display: none;
+	font-size: 18px;
+	color: orange;
+	top: -20px;
+}

@@ -1,145 +1,172 @@
-*{
+* {
 	padding: 0;
 	margin: 0;
 }
-li{
+
+li {
 	list-style-type: none;
 }
-.center{
-	background-image: url(../assets/02-1.jpeg);
+
+.center {
+	background-image: url(../img/02-1.jpeg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	width: 100%;
 	height: 600px;
 	position: relative;
 }
-.center .search{
+
+.center .search {
 	width: 395px;
 	height: 135px;
 	border-radius: 10px;
-	background-color:rgba(0,0,0,.4);
+	background-color: rgba(0, 0, 0, .4);
 	position: absolute;
 	left: 300px;
 	top: 250px;
 }
-.search li{
+
+.search li {
 	height: 30px;
 	font-size: 16px;
-    color: #fff;
-    margin-left: 20px;
-    margin-top: 20px;
+	color: #fff;
+	margin-left: 20px;
+	margin-top: 20px;
 }
-input{
+
+input {
 	height: 25px;
 	width: 290px;
 	border-radius: 4px;
 }
-.search{
+
+.search {
 	position: relative;
 }
-.search .search-a{
+
+.search .search-a {
 	width: 30px;
 	height: 30px;
 	background-color: orange;
-	background-image: url(../assets/header-sprites.png);
+	background-image: url(../img/header-sprites.png);
 	background-repeat: no-repeat;
-	background-position:4px -107px;
+	background-position: 4px -107px;
 	border-radius: 5px;
 	position: absolute;
 	top: 21px;
 	right: 30px;
 }
-.place{
+
+.place {
 	width: 1000px;
 	margin: 20px auto;
 	border: 1px solid #000000;
 }
-.place>ul{
+
+.place>ul {
 	width: 100%;
 	height: 30px;
-/*	font-size: 20px;*/
+	/*	font-size: 20px;*/
 }
-.place>ul li{
+
+.place>ul li {
 	float: left;
 	width: 20%;
 	text-align: center;
 }
-.place>ul li:hover{
+
+.place>ul li:hover {
 	color: orange;
 	border-bottom: 2px solid orange;
 }
-.city{
+
+.city {
 	margin: 20px auto;
 	font-size: 14px;
+	width: 960px;
+	height: 400px;
 }
-.city .city1{
+
+.city .city1 {
 	font-size: 18px;
 }
-.city ul{
-	width: 100%;
-	height:20px ;
-}
-.city li{
-	float: left;
-	width: 60px;
-	height: 20px;
-	line-height: 30px;
-	text-align: center;
-}
-.city li:hover{
-	border-bottom: 1px solid orange;
-	cursor: default;
-}
-.perticularly ul{
+
+.perticularly ul {
 	height: 450px;
 	width: 1000px;
-	text-align: center; 
+	text-align: center;
 	margin: 20px auto;
 }
-.perticularly li{
+
+.perticularly li {
 	float: left;
 	width: 240px;
 	height: 200px;
 	margin: 5px;
 }
-.footer{
+
+.footer {
 	width: 100%;
 	height: 300px;
 	background-color: #3c3c3c;
 	position: relative;
 }
-.footer ul li{
+
+.footer ul li {
 	padding-top: 8px;
 	color: #c2c2c2;
 }
-.footer .left{
+
+.footer .left {
 	position: absolute;
 	left: 182px;
 	top: 35px;
-	
 }
-.footer .center1{
+
+.footer .center1 {
 	position: absolute;
 	left: 600px;
 	top: 35px;
 }
-.footer .right{
+
+.footer .right {
 	position: absolute;
 	right: 220px;
 	top: 35px;
 }
 
-.footer .bootom{
+.footer .bootom {
 	height: 20px;
 	position: absolute;
 	bottom: 20px;
 	left: 190px;
-	border-bottom-color:red;
-
-
+	border-bottom-color: red;
 }
-.footer .bootom li{
-		float: left;
-		text-align: center;
-		padding-left: 10px;
+
+.footer .bootom li {
+	float: left;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.allilst ul li {
+	width: 460px;
+	float: left;
+	margin-top: 20px
+}
+
+.allilst ul li h3 {
+	margin-bottom: 5px
+}
+
+.allilst ul li span {
+	margin: 5px 30px;
+}
+
+.allilst ul li span a {
+	margin: 5px 5px;
+}
+
+a {
+	color: #000000
 }

@@ -1,0 +1,90 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style-type: none;
+	
+}
+.container{
+	width: 1000px;
+	margin: 0 auto;
+	border-top: 1px solid #000000;
+}
+.simple>li{
+	float: left;
+	
+}
+.simple>li>ul>li{
+	margin: 0 50px;
+	width: 148px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #f1f1f1;
+}
+.model{
+	position: relative;
+}
+.model .title{
+	padding: 10px;
+	font-size: 20px;
+}
+.model>ul{
+	height: 50px;
+	line-height: 50px;
+}
+.model>ul li{
+	padding: 10px;
+	float: left;
+	font-size: 14px;
+}
+.model>ul li p:hover{
+	cursor: pointer;
+	color: orange;
+}
+.model .msg{
+	padding-left: 10px;
+	font-size: 16px;
+	border-left: 2px solid orange;
+}
+.model .img{
+	background-image: url(../img/3-1.jpeg);
+	width: 668px;
+	height: 460px;
+	position: absolute;
+	top: 160px;
+}
+.const{
+	width: 800px;
+	position: absolute;
+	top: 620px;
+}
+.const .const_a:hover{
+	color: orange;
+	font-size: 20px;
+	cursor: pointer;
+}
+.time{
+	padding-left: 10px;
+	font-size: 16px;
+	border-left: 2px solid orange;
+	position: absolute;
+	top: 1200px;
+}
+.seasion{
+	width: 800px;
+	position: absolute;
+	top: 1230px;
+}
+p:hover{
+	color: orange;
+	cursor: pointer;
+	font-size: 20px;
+}
+.day{
+	padding-left: 10px;
+	font-size: 16px;
+	border-left: 2px solid orange;
+	position: absolute;
+	top: 2000px;
+}

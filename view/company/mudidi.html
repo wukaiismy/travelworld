@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>目的地-全世界路过</title>
+	<link rel="stylesheet" href="css/proj2.css" />
+	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<link rel="stylesheet" href="./css/headnav.css">
+	<script src="./js/vue.js"></script>
+	<!-- import JavaScript -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+			<el-menu-item index="1" :default-active="activeIndex">
+				<a href="">
+					<img id="imgs" src="./img/favicon12.png" alt="">
+					<b id="login">全世界路过</b>
+				</a>
+			</el-menu-item>
+			<el-menu-item index="2" :default-active="activeIndex">
+				<a href="index">首页</a>
+			</el-menu-item>
+			<el-menu-item index="3" :default-active="activeIndex">
+				<a href="mudidi">目的地</a>
+			</el-menu-item>
+			<el-menu-item index="4" :default-active="activeIndex">
+				<a href="">旅游攻略</a>
+			</el-menu-item>
+			<img id="imgs" src="./img/favicon12.png" alt="">
+			<%if(username){%>
+				<el-menu-item index="5" :default-active="activeIndex">
+					<a href="center">个人中心</a>
+				</el-menu-item>
+				<%}%>
+					<el-menu-item id="right" index="6">
+						<%if(username){%>
+							<span>欢迎你，</span>
+							<%}else{%>
+								<a href="/index/login">
+									注册|
+								</a>
+								<%}%>
+									<%if(username){%>
+										<%=username%>
+
+											<%}else{%>
+												<a href="/index/login">
+													登录
+												</a>
+												<%}%>
+					</el-menu-item>
+
+		</el-menu>
+	</div>
+
+
+
+
+	<div class="center">
+		<div class="search">
+			<ul>
+				<li class="search-b">
+					<input placeholder="我真的超想去..." />
+					<div class="search-a"></div>
+				</li>
+				<li>日本 云南 江苏 北京 济州岛 巴黎</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="place">
+		<p style="text-align: center;font-size: 24px;margin-bottom: 20px;">热门目的地</p>
+		<ul style="font-size: 20px;">
+			<li>国内</li>
+			<li>港澳台</li>
+			<li>日本</li>
+			<li>东南亚</li>
+			<li>欧洲&nbsp;美洲</li>
+		</ul>
+		<div class="city">
+			<div class="allilst">
+
+				<ul>
+					<%for(pors of pro){%>
+						<li>
+							<h3 class="city1">
+								<a href="view">
+									<%=pors.province%>
+								</a>
+							</h3>
+							<span>
+								<%for(view of views){ if(pors.pid==view.pid){%>
+									<a href="view">
+										<%=view.view%>
+									</a>
+									<%}}%>
+							</span>
+							<%}%>
+						</li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+	<div class="perticularly">
+		<p style="text-align: center;font-size: 24px;margin-bottom: 20px;">全年适宜</p>
+		<ul>
+			<li style="background-image: url(img/sy-1.jpeg);">美食</li>
+			<li style="background-image: url(img/sy-2.jpeg);">小众</li>
+			<li style="background-image: url(img/sy-3.jpeg);">登山</li>
+			<li style="background-image: url(img/sy-4.jpeg);">潜水</li>
+			<li style="background-image: url(img/sy-5.jpeg);">远离雾霾</li>
+			<li style="background-image: url(img/sy-6.jpeg);">购物</li>
+			<li style="background-image: url(img/sy-7.jpeg);">古镇</li>
+			<li style="background-image: url(img/sy-8.jpeg);">自然风景</li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="footer">
+		<ul class="left">
+			<li>旅游消费指南</li>
+			<li>100,000,000 位旅行者</li>
+			<li>920,000 家国际酒店</li>
+			<li>21,000,000 条真实点评</li>
+			<li>旅游行业第一部“玩法”</li>
+		</ul>
+		<ul class="center1">
+			<li>关于我们</li>
+			<li>
+				<a>隐私政策服务协议</a>
+			</li>
+			<li>
+				<a>联系我们</a>
+			</li>
+			<li>
+				<a>网站地图</a>
+			</li>
+			<li>
+				<a>加入我们</a>
+			</li>
+		</ul>
+		<ul class="right">
+			<li>旅行服务</li>
+			<li>
+				<a>旅游攻略</a>
+			</li>
+			<li>
+				<a>旅游问答</a>
+			</li>
+			<li>
+				<a>旅游指南</a>
+			</li>
+			<li>
+				<a>APP下载</a>
+			</li>
+		</ul>
+		<ul class="bootom">
+			<li>
+				<a>好豆美食网</a>
+			</li>
+			<li>
+				<a>绿野户外</a>
+			</li>
+			<li>
+				<a>手机浏览器</a>
+			</li>
+			<li>
+				<a>上海地图</a>
+			</li>
+			<li>
+				<a>天气预报查询</a>
+			</li>
+			<li>
+				<a>同程旅游</a>
+			</li>
+			<li>
+				<a>车讯网</a>
+			</li>
+			<li>
+				<a>遨游旅游网</a>
+			</li>
+			<li>
+				<a>手机浏览器</a>
+			</li>
+			<li>
+				<a>天巡网短租房</a>
+			</li>
+			<li>
+				<a>更多友情链接>></a>
+			</li>
+		</ul>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				activeIndex: ""
+			}
+		})
+	</script>
+</body>
+
+</html>
