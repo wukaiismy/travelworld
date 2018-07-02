@@ -130,7 +130,7 @@ module.exports = function() {
     alldatas.totalpage = Math.ceil(totalnum / pagenum);
     //查找出相关的数据
     var $sql1 =
-      "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.status=1 limit ?,?";
+      "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.status=1 ORDER  BY sid DESC limit ?,?";
     mydb.query($sql1, [start, pagenum], function(errs, data) {
       console.log(errs);
       // console.log(data);
@@ -206,6 +206,98 @@ module.exports = function() {
     });
   });
 
+  //进入到旅游攻略详情页
+  router.get("/details", function(req, res) {
+    var str = req.query;
+    console.log(str);
+    var $sql =
+      "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.sid=? limit 1";
+    mydb.query($sql, str.sid, function(err, result) {
+      console.log(err);
+      console.log("666", result, "666");
+      // var URi = decodeURI(result[0].pic);
+      // console.log(URi);
+      res.render("company/details", {
+        username: req.session.username,
+        datalist: result[0]
+      });
+    });
+  });
+  //收藏功能
+  router.get("/shou", function(req, res) {
+    console.log(req.query);
+    var str = req.query;
+    var $sql = "select shouchang from strategy where sid=? limit 1";
+    mydb.query($sql, str.sid, function(err, rel) {
+      console.log(err);
+      // console.log(rel);
+      var shouchang = rel[0].shouchang + 1;
+      // console.log(ding);
+      var $sql1 = "UPDATE  strategy SET shouchang=? WHERE sid=? ";
+      mydb.query($sql1, [shouchang, str.sid], function(err, datas) {
+        res.json({ shouchang: shouchang });
+      });
+    });
+  });
+
+  //进入到旅游攻略列表
+  router.get("/strategy", function(req, res) {
+    var $sql = "select pic from strategy  where status=1 order by sid DESC";
+    mydb.query($sql, function(err, result) {
+      console.log(err);
+      // console.log("666", result, "666");
+      res.render("company/strategy", {
+        username: req.session.username,
+        datalist: result
+      });
+    });
+  });
+  //进入到旅游攻略，具有分页功能
+  router.get("/strategydata", async (req, res) => {
+    //需要的参数用一个变量来保存
+    var alldatas = {
+      username: req.session.username,
+      datalist: {},
+      totalpage: 0,
+      page: 1
+    };
+    //定义每次查询需要显示的数量
+    var pagenum = 5;
+    //获取当前的页数
+    var page = req.query.page;
+    //判定页数相关参数
+    if (page < 1) page = 1;
+    alldatas.page = page;
+    // console.log(page);
+    //查询数据库的起始位
+    var start = pagenum * (page - 1);
+    //数据库查询总共的条数以及多少页（总条数/pagenum每页的）
+    var totalnum = 0;
+    var $numsql = "SELECT count(sid) AS totalnum FROM strategy WHERE status=1 ";
+    var $row = await (function() {
+      return new Promise((resolve, reject) => {
+        mydb.query($numsql, function(err, results) {
+          resolve(results);
+          console.log(err);
+          // console.log(results);
+        });
+      });
+    })();
+    // console.log(start);
+    //确定总页数
+    totalnum = $row[0].totalnum;
+    alldatas.totalpage = Math.ceil(totalnum / pagenum);
+    //查找出相关的数据
+    var $sql1 =
+      "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.status=1 ORDER  BY sid DESC limit ?,?";
+    mydb.query($sql1, [start, pagenum], function(errs, data) {
+      console.log(errs);
+      // console.log(data);
+      alldatas.datalist = data;
+      res.json({ lista: alldatas });
+    });
+  });
+
   //进入到xi额游记
   router.get("/mynotes", function(req, res) {
     var $sql = "select * from strategy where 1=1 ";
@@ -234,7 +326,7 @@ module.exports = function() {
       data.content
     ];
     var $sql =
-      "INSERT INTO strategy(view,province, uid,title, pic, content) VALUES ( ?, ?,?, ?, ?, ?)";
+      "INSERT INTO strategy(province,view, uid,title, pic, content) VALUES ( ?, ?,?, ?, ?, ?)";
     mydb.query($sql, $data, function(err, result) {
       if (err) {
         console.log(err);

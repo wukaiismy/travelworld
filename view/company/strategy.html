@@ -3,18 +3,24 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>首页-全世界路过</title>
+	<title>旅游攻略-全世界路过</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<link rel="stylesheet" href="css/proj4.css" />
 	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
-	<link rel="stylesheet" href="css/proj1.css" />
+
 	<link rel="stylesheet" href="./css/headnav.css">
 	<script src="./js/vue.js"></script>
 	<!-- import JavaScript -->
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="./js/strategy.js"></script>
 </head>
 
 <body>
+
+
 	<div id="app">
 		<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
 			<el-menu-item index="1" :default-active="activeIndex">
@@ -47,37 +53,46 @@
 								</a>
 								<%}%>
 									<%if(username){%>
-										<span>
-											<%=username%>
-										</span>
-										<a href="login" style="margin-left: 30px;color: red">
-											<b>退出</b>
-										</a>
-										<%}else{%>
-											<a href="/index/login">
-												登录
+										<%=username%>
+											<a href="login" style="margin-left: 30px;color: red">
+												<b>退出</b>
 											</a>
-											<%}%>
+											<%}else{%>
+												<a href="/index/login">
+													登录
+												</a>
+												<%}%>
 					</el-menu-item>
+
 		</el-menu>
-		<div :class="{tops:isFixed}">
+		<div :class="{tops:isFixed}" v-show="isFixed">
 			<b class="el-icon-caret-top" @click="top" title="返回顶部"></b>
 
 		</div>
-		<div class="guang">
-			<p>广告位招租</p>
-			<p>联系电话:</p>
-			<p>135-4002-0385</p>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		<div class="big">
 			<ul class="img">
 				<%for(var i=0;i<datalist.length;i++){%>
 					<li>
-						<img src="<%=datalist[i].pic%>" style="width: 100%;height: 630px;" alt="">
+						<img src="<%=datalist[i].pic%>" alt="" />
 					</li>
 					<%}%>
+
 			</ul>
 			<ul class="button">
 				<li></li>
@@ -86,67 +101,67 @@
 				<li></li>
 			</ul>
 		</div>
-		<div class="traver">
-			<p>旅行家专栏</p>
-			<ul class="imgs">
-				<%for(var i=2;i<6;i++){%>
+		<div class="contentalls">
+			<ul class="point">
+				<li class="point_a">旅游攻略导航</li>
+				<li class="point_b">推荐攻略</li>
+			</ul>
+			<div class="people">
+				<div class="peop">
+					<ul class="people_a">人气排行榜</ul>
 					<li>
-						<img src="<%=datalist[i].pic%>" style="width: 240px;height:120px;" alt="">
+						<span>成都</span>
 					</li>
-					<%}%>
-			</ul>
-		</div>
-		<div class="write">
-			<div class="title">
-				<a>热门游记</a>
-			</div>
-			<ul class="write_a">
-				<li class="write_b" v-for="(lists,index) in data">
-					<a :href="('details?sid='+lists.sid)">
-						<img :src="lists.pic" style="width: 220px;height:150px;" alt="">
-					</a>
-					<div class="write_c">
-						<h3>
-							<a class="nones" :href="('details?sid='+lists.sid)">
-								{{lists.title}}
-							</a>
-						</h3>
-						<small class="contentss" v-html="lists.content">
-
-						</small>
-						<div class="butom">
-							<span>
-								<i class="addss"></i>
-								<a href="">
-									{{lists.view}}
-								</a>
-								，by
-							</span>
-							<span class="bbc">
-								<a href="">
-									{{lists.usernames}}
-								</a>
-							</span>
-							<span>
-								<i class="see"></i>
-								97/3
-							</span>
-							<span class="last">
-
-								<em>
-									{{lists.ding}}
-								</em>
-								<p class="btn-ding1">+1</p>
-								<span class="btn-ding" @click.stop="ding($event,lists.sid)" :value="lists.sid">
+					<li>
+						<span>九寨沟</span>
+					</li>
+					<li>
+						<span>重庆</span>
+					</li>
+					<li>
+						<span>敦煌</span>
+					</li>
+					<li>
+						<span>大理</span>
+					</li>
+				</div>
+				<div class="contersa">
+					<ul class="personal">
+						<li v-for="(lists,index) in data">
+							<div class="type">
+								<div class="type-a"></div>
+								<span>来自
+									<strong>自由行攻略</strong>
 								</span>
-							</span>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<div>
-				<el-pagination background @current-change="pages" layout="prev,pager,next" :total="totalpage*10">
-				</el-pagination>
+								<div class="type-b">{{lists.ding}} 蜂蜂顶
+									<div></div>
+								</div>
+							</div>
+							<div class="dg">
+								<h3 class="biti">
+									<a :href="('details?sid='+lists.sid)">{{lists.title}}</a>
+								</h3>
+							</div>
+							<div class="titles contentss">
+								<small class="contentss" v-html="lists.content">
+
+								</small>
+
+							</div>
+							<div class="imgss">
+								<img class="imngs" :src="lists.pic" />
+								<img class="imngs" :src="lists.pic" />
+								<img class="imngs" :src="lists.pic" />
+							</div>
+						</li>
+					</ul>
+
+				</div>
+
+				<div class="pagess">
+					<el-pagination background @current-change="pages" layout="prev,pager,next" :total="totalpage*10">
+					</el-pagination>
+				</div>
 			</div>
 
 		</div>
@@ -225,10 +240,10 @@
 
 			</ul>
 		</div>
-	</div>
-	<script src="./js/index.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+
+
+	</div>
 </body>
 
 </html>

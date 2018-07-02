@@ -6,7 +6,7 @@
 body {
     height: auto;
     width: auto;
-    background: url(../img/page_bg.jpg);
+    /* background: url(../img/page_bg.jpg); */
     background-size: cover;
 }
 
@@ -22,7 +22,7 @@ a:hover {
     float: left;
     height: 60px;
     line-height: 60px;
-    margin-left: 20px;
+    margin-left: 10px;
     border-bottom: 2px solid transparent;
     color: #162136;
     font-size: 16px;
@@ -97,4 +97,19 @@ a:hover {
     line-height: 40px;
     text-align: center;
     font-size: 18px;
+}
+
+.guang {
+    background-color: rgb(124, 41, 41);
+    position: fixed;
+    left: 30px;
+    bottom: 300px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .12);
+    z-index: 5;
+    color: #fff;
+    word-wrap: break-word;
 }

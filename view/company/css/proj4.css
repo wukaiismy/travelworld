@@ -1,0 +1,285 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+.big {
+	width: 700px;
+	margin: 0 auto;
+}
+
+.big,
+.img {
+	height: 340px;
+	overflow: hidden;
+	position: relative;
+}
+
+.button {
+	width: 95px;
+}
+
+.button li {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 1px solid #f01234;
+	margin-left: 10px;
+	background-color: #fff;
+}
+
+.button {
+	position: absolute;
+	bottom: 20px;
+	left: 40%;
+}
+
+.button li {
+	float: left;
+}
+
+.button .btn_hover {
+	background-color: #f01234;
+	width: 15px;
+	height: 15px;
+}
+
+.point {
+	width: 1000px;
+	height: 30px;
+	line-height: 30px;
+	margin: 10px auto;
+}
+
+.point li {
+	float: left;
+}
+
+.point .point_a {
+	font-size: 14px;
+}
+
+.point .point_b {
+	font-size: 18px;
+	margin-left: 50px;
+}
+
+.people {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+.people>li {
+	float: left;
+}
+
+.people .peop {
+	width: 100px;
+	position: absolute;
+}
+
+.peop li {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #C2C2C2;
+}
+
+.people_a {
+	color: orange;
+	font-size: 16px;
+}
+
+.peop span:hover {
+	font-size: 18px;
+	color: orange;
+	border-bottom: 1px solid orange;
+	cursor: pointer;
+}
+
+.personal li {
+	width: 850px;
+	height: 300px;
+	position: relative;
+	left: 30px;
+	border-top: 1px solid #C2C2C2;
+}
+
+.personal li:hover {
+	background-color: #F1F1F1;
+}
+
+.personal li .type {
+	width: 100%;
+	position: absolute;
+	top: 10px;
+	/*border: 1px solid #C2C2C2;*/
+}
+
+.personal li .type-a {
+	width: 20px;
+	height: 20px;
+	background-image: url(../assets/new-gl-icon6.png);
+	background-position: 0px -20px;
+}
+
+.personal li span {
+	position: absolute;
+	top: 0;
+	left: 25px;
+}
+
+.personal li span strong {
+	color: orange;
+}
+
+.personal li .type-b {
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	border-radius: 20px;
+	border: 1px solid #C2C2C2;
+}
+
+.personal li .type-b div {
+	width: 20px;
+	height: 20px;
+	background-image: url(../assets/gl-icon6.png);
+	background-position: -40px -40px;
+	position: absolute;
+	right: 10px;
+	top: 6px;
+}
+
+.personal li .dg {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	position: absolute;
+	top: 40px;
+}
+
+.dg span:hover {
+	color: orange;
+	cursor: pointer;
+}
+
+.personal li .titles {
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	top: 80px;
+}
+
+.personal li ul {
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	top: 120px;
+}
+
+.personal li ul li {
+	float: left;
+	margin: 10px;
+	width: 220px;
+	height: 80px;
+	border: 1px solid #C2C2C2;
+}
+
+.footer {
+	width: 100%;
+	height: 300px;
+	background-color: #3c3c3c;
+	position: relative;
+}
+
+.footer ul li {
+	padding-top: 8px;
+	color: #c2c2c2;
+}
+
+.footer .left {
+	position: absolute;
+	left: 182px;
+	top: 35px;
+}
+
+.footer .center {
+	position: absolute;
+	left: 600px;
+	top: 35px;
+}
+
+.footer .right {
+	position: absolute;
+	right: 220px;
+	top: 35px;
+}
+
+.footer .bootom {
+	height: 20px;
+	position: absolute;
+	bottom: 20px;
+	left: 220px;
+	border-bottom-color: red;
+}
+
+.footer .bootom li {
+	float: left;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.pagess {
+	position: relative;
+}
+
+.contentalls {
+	position: relative;
+}
+
+.contersa {
+	position: relative;
+	margin: 40px 100px;
+}
+
+.contentss {
+	text-align: left;
+	text-indent: 2em;
+	line-height: 24px;
+	display: block;
+	height: 50px;
+	overflow: hidden;
+	width: 600px;
+}
+
+.imgss {
+	position: relative;
+	top: 140px;
+	left: 20px
+}
+
+.imngs {
+	width: 220px;
+	height: 150px;
+	position: relative;
+}
+
+.biti {
+	margin-bottom: 8px
+}
+
+a {
+	text-decoration: none;
+	color: #3c3c3c
+}

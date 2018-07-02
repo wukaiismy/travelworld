@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>
+		<%=datalist.title%>-全世界路过</title>
+	<link rel="stylesheet" type="text/css" href="./css/youji.css">
+	<script type="text/javascript" src="./js/youji.js"></script>
+	<link rel="icon" href="./img/favicon12.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<link rel="stylesheet" href="./css/headnav.css">
+	<script src="./js/vue.js"></script>
+	<!-- import JavaScript -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+	<div id="app">
+		<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+			<el-menu-item index="1" :default-active="activeIndex">
+				<a href="">
+					<img id="imgs" src="./img/favicon12.png" alt="">
+					<b id="login">全世界路过</b>
+				</a>
+			</el-menu-item>
+			<el-menu-item index="2" :default-active="activeIndex">
+				<a href="index">首页</a>
+			</el-menu-item>
+			<el-menu-item index="3" :default-active="activeIndex">
+				<a href="mudidi">目的地</a>
+			</el-menu-item>
+			<el-menu-item index="4" :default-active="activeIndex">
+				<a href="strategy">旅游攻略</a>
+			</el-menu-item>
+			<img id="imgs" src="./img/favicon12.png" alt="">
+			<%if(username){%>
+				<el-menu-item index="5" :default-active="activeIndex">
+					<a href="center">个人中心</a>
+				</el-menu-item>
+				<%}%>
+					<el-menu-item id="right" index="6">
+						<%if(username){%>
+							<span>欢迎你，</span>
+							<%}else{%>
+								<a href="/index/login">
+									注册|
+								</a>
+								<%}%>
+									<%if(username){%>
+										<%=username%>
+											<a href="login" style="margin-left: 30px;color: red">
+												<b>退出</b>
+											</a>
+											<%}else{%>
+												<a href="/index/login">
+													登录
+												</a>
+												<%}%>
+					</el-menu-item>
+
+		</el-menu>
+		<div :class="{tops:isFixed}" v-show="isFixed">
+			<b class="el-icon-caret-top" @click="top" title="返回顶部"></b>
+
+		</div>
+
+
+
+		<div class="big_box">
+			<div id="first_head">
+				<a href="">
+					<img src="./img/shou.png" class="shou">
+				</a>
+				<a href="">
+					<span class="gong">
+						<%=datalist.view%>
+					</span>
+				</a>
+				<span class="xie">/</span>
+				<a href="">
+					<span class="rong">
+						<%=datalist.title%>
+					</span>
+				</a>
+				<div class="xiaoxi">
+					<img src="./img/xiaoxi.png">
+					<span class="h_news">80</span>
+				</div>
+				<ul class="top_last">
+					<li class="first_li">
+						<div class="xing1"></div>
+						<p class="p4">113</p>
+					</li>
+					<li class="two_li">
+						<img src="./img/fen.png" class="fen1">
+						<p class="p5">10</p>
+					</li>
+				</ul>
+			</div>
+			<div class="head">
+				<img class="img2" src="<%=datalist.pic%>" alt="">
+			</div>
+		</div>
+		<div class="center">
+			<div class="center_center">
+				<div class="touxiang">
+					<img src="./img/touxiang11.jpeg">
+					<div class="xue">
+						<span>
+							<%=datalist.title%>
+						</span>
+					</div>
+				</div>
+				<div>
+					<a href="" class="who">
+						<%=datalist.usernames%>
+					</a>
+					<a href="" class="level">LV.14</a>
+					<img src="./img/btn_sfollow.gif" class="guanzhu">
+				</div>
+				<div class="dong">
+					<span class="time">2018-02-22 11:54</span>
+					<img src="./img/yan.png" class="yan">
+					<span class="num">4309/80</span>
+				</div>
+				<ul class="center_last">
+					<li class="first">
+						<div class="xing" :plain="true" @click="shou($event,<%=datalist.sid%>)"></div>
+						<p class="p2">
+							<b style="margin-right: 2px">
+								<%=datalist.shouchang%>
+							</b>
+							收藏
+						</p>
+					</li>
+					<li class="two">
+						<img src="./img/fen.png" class="fen">
+						<p class="p3">10分享</p>
+					</li>
+				</ul>
+			</div>
+			<div class="contentbox">
+				<div class="left">
+					<div class="banxin">
+						<ul class="xiaodao">
+							<li>
+								<img src="./img/zhong.png">
+								<div>出发时间
+									<span class="xian">/</span>
+									2018-01-27
+								</div>
+							</li>
+							<li>
+								<img src="./img/shi.png">
+								<div>出行天数
+									<span class="xian">/</span>
+									9 天
+								</div>
+							</li>
+							<li>
+								<img src="./img/ren.png">
+								<div>人物
+									<span class="xian">/</span>
+									情侣/夫妻
+								</div>
+							</li>
+							<li>
+								<img src="./img/rmb.png">
+								<div>人均费用
+									<span class="xian">/</span>
+									20000RMB
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="mians">
+						<%-datalist.content%>
+					</div>
+				</div>
+				<div class="right">
+					<div class="right_head">
+						<span class="mudi">相关目的地：</span>
+						<a href="" class="nihong">
+							<%=datalist.province%>
+								<%=datalist.view%>
+						</a>
+					</div>
+					<a href="">
+						<div class="beihai">
+							<img src="<%=datalist.pic%>">
+							<div class="dao">
+								<%=datalist.view%>
+							</div>
+						</div>
+					</a>
+					<div class="right_foot">
+						<div>有
+							<span class="shu">
+								<%=Math.floor(Math.random()*10000+1)%>
+							</span>
+							张照片</div>
+						<a href="">
+							<div class="quba"></div>
+						</a>
+					</div>
+				</div>
+				<div id="little_r">
+					<span class="xiangguan">相关目的地：</span>
+					<a href="" class="bei">
+						<%=datalist.province%>
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

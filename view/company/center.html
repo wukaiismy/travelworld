@@ -34,7 +34,7 @@
 					<a href="mudidi">目的地</a>
 				</el-menu-item>
 				<el-menu-item index="4" :default-active="activeIndex">
-					<a href="">旅游攻略</a>
+					<a href="strategy">旅游攻略</a>
 				</el-menu-item>
 				<img id="imgs" src="./img/favicon12.png" alt="">
 				<%if(username){%>
@@ -212,13 +212,14 @@
 			<div class="tutu">
 				<ul>
 					<%for(var i=0;i<datalist.length;i++){%>
-						<li>
-							<span class="biaoti">
-								<%=datalist[i].title%>
-							</span>
-							<br>
-							<img class="img" src="<%=datalist[i].pic%>">
-
+						<li class="content">
+							<a href="details?sid=<%=datalist[i].sid%>">
+								<span class="biaoti">
+									<%=datalist[i].title%>
+								</span>
+								<br>
+								<img class="img" src="<%=datalist[i].pic%>">
+							</a>
 						</li>
 						<%}%>
 				</ul>
