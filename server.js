@@ -35,8 +35,9 @@ app.use(
 
 //下面分别是进入到前台和后台的路由
 app.use("/index", require("./module/company/")());
+app.use("/app", require("./module/company/app.js")());
 app.use("/admin", require("./module/admin/")());
 
 //端口监听
-app.listen(8080);
-console.log("8080运行中。。。");
+app.listen(8081);
+console.log("8081运行中。。。");

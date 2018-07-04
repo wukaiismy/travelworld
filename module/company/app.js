@@ -3,32 +3,31 @@ const express = require("express");
 const url = require("url");
 const path = require("path");
 const multer = require("multer");
+
 const fs = require("fs");
 const mydb = require("../../lib/mydb.js");
 const md5 = require("../../lib/md5.js");
 module.exports = function() {
   var router = express.Router();
-
-  //注册页面的渲染
-  // router.get("/login", function(req, res) {
-  //   res.render("company/login");
-  // });
-
+  router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+  });
   //注册页面的数据处理
   router.post("/regs", function(req, res) {
     var str = req.body;
     console.log(str);
-    var pw = md5(str.pas);
+    var pw = md5(str.password);
     var $sql =
       "select uid,usernames,passwd from user where usernames=? limit 1";
-    mydb.query($sql, str.use, function(err, data) {
+    mydb.query($sql, str.username, function(err, data) {
       console.log(err);
       // console.log(data);
       if (data.length) {
         res.send('{"r":"exist"}');
       } else {
         $sql1 = "INSERT INTO user(usernames,passwd,tel) VALUES(?,?,?)";
-        var datas = [str.use, pw, str.tel];
+        var datas = [str.username, pw, str.tel];
         mydb.query($sql1, datas, function(err, data) {
           console.log(err);
           // console.log(data.insertId);
@@ -38,17 +37,8 @@ module.exports = function() {
     });
   });
 
-  //登录页面的渲染
-  router.get("/login", function(req, res) {
-    // var filename=url.parse(req.url,true).pathname.substring(1);
-    var datas = {
-      username: req.cookies.username,
-      passwd: req.cookies.passwd
-    };
-    res.render("company/login", datas);
-  });
   //登录界面数据处理
-  router.post("/login", function(req, res) {
+  router.post("/logins", function(req, res) {
     var str = req.body;
     console.log(str);
     // console.log(pw);
@@ -93,67 +83,15 @@ module.exports = function() {
     });
   });
 
-  //进入到首页，具有分页功能
-  router.get("/indexdata", async (req, res) => {
-    //需要的参数用一个变量来保存
-    var alldatas = {
-      username: req.session.username,
-      datalist: {},
-      totalpage: 0,
-      page: 1
-    };
-    //定义每次查询需要显示的数量
-    var pagenum = 5;
-    //获取当前的页数
-
-    var page = req.query.page;
-    if (isNaN(page)) {
-      page = 1;
-    }
-    //判定页数相关参数
-    if (page < 1) page = 1;
-    alldatas.page = page;
-    // console.log(page);
-    //查询数据库的起始位
-    var start = pagenum * (page - 1);
-    //数据库查询总共的条数以及多少页（总条数/pagenum每页的）
-    var totalnum = 0;
-    var $numsql = "SELECT count(sid) AS totalnum FROM strategy WHERE status=1 ";
-    var $row = await (function() {
-      return new Promise((resolve, reject) => {
-        mydb.query($numsql, function(err, results) {
-          resolve(results);
-          console.log(err);
-          // console.log(results);
-        });
-      });
-    })();
-    // console.log(start);
-    //确定总页数
-    totalnum = $row[0].totalnum;
-    alldatas.totalpage = Math.ceil(totalnum / pagenum);
-    //查找出相关的数据
-    var $sql1 =
-      "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.status=1 ORDER  BY sid DESC limit ?,?";
-    mydb.query($sql1, [start, pagenum], function(errs, data) {
-      console.log(errs);
-      // console.log(data);
-      alldatas.datalist = data;
-      res.header("Access-Control-Allow-Origin", "*");
-      res.json({ lista: alldatas });
-    });
-  });
-
-  //进入到首页
-  router.get("/index", function(req, res) {
-    var $sql = "select pic from strategy  where status=1 order by sid DESC";
+  //首页的相关数据
+  //首页的相关数据
+  router.get("/indexdata", function(req, res) {
+    var $sql =
+      "select pic,title,view,sid from strategy  where status=1 order by sid DESC limit 4";
     mydb.query($sql, function(err, result) {
       console.log(err);
-      // console.log("666", result, "666");
-      res.render("company/index", {
-        username: req.session.username,
-        datalist: result
-      });
+
+      res.json({ lista: result });
     });
   });
 
