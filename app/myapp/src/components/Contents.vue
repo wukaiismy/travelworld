@@ -13,42 +13,42 @@ export default {
   },
   methods: {
     onImgError(item, $event) {
-      console.log(item, $event);
+      // console.log(item, $event);
     }
   },
   data() {
     return {
       type: "5",
-      list: [
-        {
-          src: "http://somedomain.somdomain/x.jpg",
-          fallbackSrc: "http://placeholder.qiniudn.com/60x60/3cc51f/ffffff",
-          title: "标题一",
-          desc:
-            "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。",
-          url: "/Details?sid=2"
-        },
-        {
-          src: "http://placeholder.qiniudn.com/60x60/3cc51f/ffffff",
-          title: "标题二",
-          desc:
-            "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。",
-          url: {
-            path: "/Details?sid=1",
-            replace: false
-          },
-          meta: {
-            source: "来源信息",
-            date: "时间",
-            other: "其他信息"
-          }
-        }
-      ],
+      list: [],
       footer: {
-        title: "加载更多",
+        title: "没有更多了",
         url: "http://vux.li"
       }
     };
+  },
+  mounted() {
+    var This = this;
+    //通过给定的ID来发送请求
+    this.$http
+      .get("strategy")
+      .then(function(response) {
+        console.log(response.data.datalist);
+        var datas = response.data.datalist;
+        const urlList = [];
+        for (let index = 0; index < datas.length; index++) {
+          urlList.push({
+            src: This.GLOBAL.url + datas[index].pic.replace(/\\/g, "/"),
+            title: datas[index].title,
+            desc: datas[index].content,
+            url: "/Details?sid=" + datas[index].sid
+          });
+        }
+        console.log(urlList);
+        This.list = urlList;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 };
 </script>

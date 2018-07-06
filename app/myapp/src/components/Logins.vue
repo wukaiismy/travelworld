@@ -83,6 +83,12 @@ export default {
         )
         .then(function(response) {
           console.log(response.data);
+          if (response.data.r == "ok") {
+            This.userName = response.data.user.usernames;
+            This.useruid = response.data.user.uid;
+            This.$emit("userSignIn", This.userName);
+            This.$router.push({ path: "/" });
+          }
         })
         .catch(function(err) {
           console.log(err);

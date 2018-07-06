@@ -11,7 +11,7 @@
       <x-input title="请输入密码" type="text" placeholder="请输入密码" v-model="password" :min="5" :max="15" @on-change="change"></x-input>
       <x-input title="请确认密码" v-model="password2" type="text" placeholder="" :equal-with="password"></x-input>
     </group>
-    <x-button  type="primary" @click.native="submits" action-type="button">完成注册，进入全世界</x-button>
+    <x-button :gradients="['#1D62F0', '#19D5FD']"  type="primary" @click.native="submits" action-type="button">完成注册，进入全世界</x-button>
       <toast v-model="showPositionValue" type="text" :time="2000" is-show-mask :text="msgs" position="bottom"></toast>
     </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
    
-    <tabbar>
+    <tabbar style=" position: fixed;" >
       <tabbar-item link="/">
         <img slot="icon" src="../assets/i1.png">
         <span slot="label">首页</span>
@@ -16,7 +16,7 @@
       </tabbar-item>
       <tabbar-item badge="" link="/Logins">
         <img slot="icon" src="../assets/i4.png">
-        <span slot="label">我的</span>
+        <span slot="label">登录</span>
       </tabbar-item>
     </tabbar>
   </div>
@@ -35,3 +35,5 @@ export default {
   }
 };
 </script>
+<style scoped>
+</style>

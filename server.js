@@ -39,5 +39,5 @@ app.use("/app", require("./module/company/app.js")());
 app.use("/admin", require("./module/admin/")());
 
 //端口监听
-app.listen(8081);
-console.log("8081运行中。。。");
+app.listen(80);
+console.log("80运行中。。。");

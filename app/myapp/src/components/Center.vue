@@ -1,12 +1,13 @@
 <template>
     <div>
-<divider> 个人中心 </divider>
+
     <div class="top">
-      <div class="log" v-if="condition" >
+      <div class="log" v-show="ddd" >
+        <divider> 个人中心 </divider>
           <h3>全世界欢迎你</h3>
            <x-button mini  :gradients="['#FF5E3A', '#FF9500']" link="/Logins">登录/注册</x-button>
     <group>
-      <cell :title="公告">
+      <cell title="p"> 
         <marquee>
           <marquee-item v-for="(msg,i) of msgs" :key="i">{{msg }} {{i}}</marquee-item>
         </marquee>
@@ -14,9 +15,9 @@
     </group>
     <br>
       </div>
-       <div class="loged">
-         <x-header :left-options="{showBack: false}">吴凯</x-header>  
-         <b>欢迎回来：吴凯</b>
+       <div class="loged" v-show="!ddd">
+         <x-header :left-options="{showBack: false}">{{username}}-个人中心</x-header>  
+         <b>欢迎回来：{{username}}</b>
          <br>
           <x-button style="border-radius:99px;color:#000000"   :gradients="['#FF5E3A', '#FF9500']" link="/Logins">
           <img class="imgs" src="../assets/照相机.svg" alt="">
@@ -83,7 +84,8 @@ export default {
         "卢沟桥、宛平城；不忘屈辱、铭记历史",
         "台湾8日游"
       ],
-      condition: false
+      ddd: true,
+      username: ""
     };
   },
   components: {
@@ -102,6 +104,14 @@ export default {
     onItemClick() {
       console.log("on item click");
     }
+  },
+  mounted() {
+    console.log(3333);
+    console.log(localStorage.userName);
+    if (localStorage.userName) {
+      this.ddd = false;
+      this.username = localStorage.userName;
+    }
   }
 };
 </script>
@@ -112,7 +122,7 @@ export default {
   height: 200px;
   background-color: beige;
   position: relative;
-  top: -25px;
+  /* top: -25px; */
   background-image: url(../assets/timg.gif);
 }
 h3 {

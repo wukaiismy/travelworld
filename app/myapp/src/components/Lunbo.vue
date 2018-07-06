@@ -44,7 +44,7 @@ export default {
         for (let index = 0; index < response.data.lista.length; index++) {
           urlList.push({
             img:
-              This.GLOBAL.Url +
+              This.GLOBAL.url +
               response.data.lista[index].pic.replace(/\\/g, "/"),
             title: response.data.lista[index].title,
             view: response.data.lista[index].view

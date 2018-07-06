@@ -6,14 +6,14 @@ import App from "./App";
 import router from "./router";
 import foot from "@/components/foot";
 import { AjaxPlugin } from "vux";
-import Global_ from "../static/global";
+import Global_ from "../static/global.js";
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false;
 Vue.component("tabbar", foot);
 Vue.use(AjaxPlugin);
 Vue.prototype.GLOBAL = Global_;
-Vue.prototype.$http.defaults.baseURL = Global_.Url;
+Vue.prototype.$http.defaults.baseURL = Global_.url;
 /* eslint-disable no-new */
 new Vue({
   router,

@@ -13,6 +13,18 @@ module.exports = function() {
     res.header("Access-Control-Allow-Origin", "*");
     next();
   });
+  //检测是否登陆过
+  router.get("/login", function(req, res) {
+    var str = req.query;
+    // console.log("打一局" + req.session.sid);
+    var $sql = "select usernames,uid from user  where uid=? limit 1";
+    mydb.query($sql, req.session.sid, function(err, result) {
+      console.log(err);
+
+      res.json({ lista: result });
+    });
+  });
+
   //注册页面的数据处理
   router.post("/regs", function(req, res) {
     var str = req.body;
@@ -70,7 +82,8 @@ module.exports = function() {
             });
           }
           return res.json({
-            r: "ok"
+            r: "ok",
+            user: result[0]
           });
         } else {
           return res.json({
@@ -108,40 +121,7 @@ module.exports = function() {
       });
     });
   });
-  //点赞功能
-  router.get("/ding", function(req, res) {
-    // console.log(req.query);
-    var str = req.query;
-    var $sql = "select ding from strategy where sid=? limit 1";
-    mydb.query($sql, str.sid, function(err, rel) {
-      console.log(err);
-      // console.log(rel);
-      var ding = rel[0].ding + 1;
-      // console.log(ding);
-      var $sql1 = "UPDATE  strategy SET ding=? WHERE sid=? ";
-      mydb.query($sql1, [ding, str.sid], function(err, datas) {
-        res.json({ ding: ding });
-      });
-    });
-  });
-  ////进入到目的地
-  router.get("/mudidi", function(req, res) {
-    var $sql =
-      "select v.*,p.province from view as v left join province as p on v.pid=p.pid where 1=1 order by vid DESC";
-    mydb.query($sql, function(err, result) {
-      console.log(err);
-      // console.log(result);
-      var $sql1 = "select * from province where 1=1 order by pid DESC";
-      mydb.query($sql1, function(err, rel) {
-        // console.log(rel);
-        res.render("company/mudidi", {
-          username: req.session.username,
-          views: result,
-          pro: rel
-        });
-      });
-    });
-  });
+
   //进入到详情介绍
   router.get("/view", function(req, res) {
     res.render("company/view", {
@@ -157,13 +137,14 @@ module.exports = function() {
       "select s.*, u.usernames from strategy as s left join user as u on s.uid=u.uid where s.sid=? limit 1";
     mydb.query($sql, str.sid, function(err, result) {
       console.log(err);
-      console.log("666", result, "666");
       // var URi = decodeURI(result[0].pic);
-      // console.log(URi);
-      res.render("company/details", {
-        username: req.session.username,
-        datalist: result[0]
-      });
+      var datas = result;
+
+      // datas[0].content = datas[0].content.replace(/<\/?.+?>/g, "");
+      // datas[0].content = datas[0].content.replace(/ /g, "");
+      // // console.log(datas[index].content);
+
+      res.json({ datalist: datas[0] });
     });
   });
   //收藏功能
@@ -185,13 +166,20 @@ module.exports = function() {
 
   //进入到旅游攻略列表
   router.get("/strategy", function(req, res) {
-    var $sql = "select pic from strategy  where status=1 order by sid DESC";
+    var $sql = "select * from strategy  where status=1 order by sid DESC";
     mydb.query($sql, function(err, result) {
       console.log(err);
-      // console.log("666", result, "666");
-      res.render("company/strategy", {
+      // console.log(result);
+      var datas = result;
+      for (let index = 0; index < datas.length; index++) {
+        datas[index].content = datas[index].content.replace(/<\/?.+?>/g, "");
+        datas[index].content = datas[index].content.replace(/ /g, "");
+        // console.log(datas[index].content);
+      }
+
+      res.json({
         username: req.session.username,
-        datalist: result
+        datalist: datas
       });
     });
   });
